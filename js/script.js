@@ -66,23 +66,83 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const modal = document.getElementById('modal');
     const modalTitle = document.getElementById('modal-title');
-    const modalText = document.getElementById('modal-text');
+    const modalBody = document.getElementById('modal-body');
 
     function showModal(project) {
+        modalTitle.textContent = '';
+        modalBody.innerHTML = '';
+
         if (project === 'chutkost') {
-            modalTitle.textContent = 'Экспликация: Чуткость';
-            modalText.innerHTML = `
-                Чуткость как новая экология, 2023<br>
-                Слава Иванова, Ирина Даниличева, Александра Далибах, Яна Сорокина<br>
-                Медиа-инсталляция<br>
-                Что такое чуткость? Чуткость – это внимательное отношение к окружающему миру и его многогранности. Чуткость – это ощущение детского любопытства ко всему незнакомому, отличному от нас. Исследуя концепцию чуткости, художники создали инсталляцию, которая возвращает посетителей в мир детской игры.<br><br>
-                Инсталляция отсылает к детскому ритуалу создания секретиков – тайника с «сокровищами», где хранилось все самое ценное. В инсталляции роль такого тайника выполняет небольшая шкатулка из кокосового воска. Внутри шкатулки спрятан один из значимых матчей футбольного клуба «Зенит». Подобно полузабытому воспоминанию, матч представляет из себя обобщенный образ игры, где траектория движения игроков перекодирована в световые точки. Коробочка с секретом является интерактивным объектом, который можно открыть, потрогать, послушать, вдохнуть аромат газона. Реагируя на тепло человеческих рук, воск постепенно стирается: объект, как и весь окружающий мир, реагирует на действия человека.<br><br>
-                Рядом с коробочкой можно посмотреть интервью со спортивными болельщиками. Авторы вместе с любителями спорта рассуждают о чуткости и экологии.<br><br>
-                Взаимодействие с инсталляцией расширяет наше представление о связи чуткости и экологии, где детское любопытство и бережное отношение к хрупкому – это основа экологичной жизни. На сайте проекта размещены полезные материалы об эко-привычках, трендах и челленджах, которые несложно повторить каждому.
+            modalTitle.textContent = 'Чуткость';
+            modalBody.innerHTML = `
+                <p>2023 — Медиа-инсталляция с интерактивной шкатулкой из кокосового воска. Совместно с Ириной Даниличевой, Александрой Далибах и Яной Сорокиной. <a href="https://art-and-science-center.timepad.ru/event/2592578/" target="_blank">Подробнее</a>.</p>
+                <video controls width="400">
+                    <source src="sensetivy.mp4" type="video/mp4">
+                    Ваш браузер не поддерживает видео.
+                </video>
+            `;
+            modal.style.display = 'block';
+        } else if (project === 'serbian-dogbook') {
+            modalTitle.textContent = 'Сербско-русский собачник';
+            modalBody.innerHTML = `
+                <p>2023 — Зин формата А6 (6 страниц) с иллюстрациями, посвящённый общению с собачниками на сербском языке. <a href="serbian-dogbook.pdf" type="application/pdf" target="_blank">PDF</a>.</p>
+                <img src="photo_2025-07-14_13-55-26.jpg" alt="Собачник" width="400">
+            `;
+            modal.style.display = 'block';
+        } else if (project === 'sestra') {
+            modalTitle.textContent = 'Сестра';
+            modalBody.innerHTML = `
+                <p>2024 — ИИ-бот для поддержки жертв гендерного насилия в Telegram. <a href="https://t.me/svudabot" target="_blank">Бот Горгона</a>.</p>
+                <img src="sestra.jpg" alt="Сестра" width="400">
+            `;
+            modal.style.display = 'block';
+        } else if (project === 'quantportraits') {
+            modalTitle.textContent = 'Квантовые портреты';
+            modalBody.innerHTML = `
+                <p>2024 — Интерактивный art&science проект, где пиксели интерпретируются как квантовые объекты. <a href="https://quantportrait.netlify.app/" target="_blank">Посетить сайт</a>.</p>
+                <img src="quantportrait.jpg" alt="Квантовые портреты" width="400">
+            `;
+            modal.style.display = 'block';
+        } else if (project === 'rajm') {
+            modalTitle.textContent = 'Rajm';
+            modalBody.innerHTML = `
+                <p>2025 — Проект о травме через аромат, вдохновлённый данными о фемициде. В разработке с апреля 2025.</p>
+                <button class="modal-btn" data-modal="rajm-essay">Эссе</button>
+                <button class="modal-btn" data-modal="rajm-description">Описание</button>
+                <div class="photo-gallery">
+                    <img src="20250710_2103_Conceptual Perfume Sculpture_simple_compose_01jztvf40ffyxrcfjb3dryvb2n.png" alt="Скульптура" width="200">
+                    <img src="20250711_1212_Ritual Stone Art_simple_compose_01jzwffgadev5ay3etmtyktv3e.png" alt="Каменное искусство" width="200">
+                    <img src="20250711_1218_Ritual Silk Wristband_simple_compose_01jzwfszsmf8arav9qtbx1krwp.png" alt="Шелковый браслет" width="200">
+                </div>
+            `;
+            modal.style.display = 'block';
+        } else if (project === 'kombucha') {
+            modalTitle.textContent = 'Сумки из чайного гриба';
+            modalBody.innerHTML = `
+                <p>2025 — Экологичный проект в разработке, исследующий эстетический потенциал био-материалов.</p>
+                <button class="modal-btn" data-modal="kombucha-essay">Эссе</button>
+                <button class="modal-btn" data-modal="kombucha-description">Описание</button>
+                <div class="photo-gallery">
+                    <img src="" alt="Сумка 1" width="200" style="display: none;">
+                    <img src="" alt="Сумка 2" width="200" style="display: none;">
+                    <img src="" alt="Сумка 3" width="200" style="display: none;">
+                </div>
+            `;
+            modal.style.display = 'block';
+        } else if (project === 'clay') {
+            modalTitle.textContent = 'Уличный арт: Глиняные человечки';
+            modalBody.innerHTML = `
+                <p>2025 — Глиняные фигурки, вдохновлённые дорожными знаками, рассказывающие о жизни после знаков.</p>
+                <button class="modal-btn" data-modal="clay-essay">Эссе</button>
+                <button class="modal-btn" data-modal="clay-description">Описание</button>
+                <div class="photo-gallery">
+                    <img src="yzma/potman.webp" alt="Человечек 1" width="200">
+                    <img src="yzma/streetman.webp" alt="Человечек 2" width="200">
+                </div>
             `;
             modal.style.display = 'block';
         } else if (project === 'rajm-essay') {
-            modalTitle.textContent = 'Эссе: The Rajm Project';
+            modalTitle.textContent = 'Эссе: Rajm';
             modalText.innerHTML = `
                 The rajm project was conceived in April 2025 and is based on data from UN Women and UNODC (2023). According to this data, approximately 85,000 cases of femicide are recorded each year, 60% of which are committed by intimate partners or family members. These numbers may seem dry and depersonalized — but for me, they became deeply personal. I spent a long time searching for a way to express an experience that is nearly impossible to articulate.<br><br>
                 Femicide is not an abstract concept. It is a reality that exists alongside us, regardless of time. We see the bodies, the tools, we hear the motives — these things help us make sense of what happened. But what is it that provokes the inevitable reaction? Smell. It fills the space within minutes. A person cannot live without air for more than three minutes — breath is inevitable. Hair, skin — everything absorbs scent. And no amount of washing will erase its trace. This was the sensation that sparked my research.<br><br>
@@ -98,75 +158,38 @@ document.addEventListener('DOMContentLoaded', () => {
             `;
             modal.style.display = 'block';
         } else if (project === 'rajm-description') {
-            modalTitle.textContent = 'Описание проекта: “rajm”';
-            modalText.innerHTML = `
-                Concept<br>
-                The project “rajm” was born in April 2025, three months ago, when I began researching UN Women and UNODC data (2023), which recorded 85,000 cases of femicide annually. Of these, 51,100 (60%) were the result of violence by intimate partners or family members. These cold and depersonalized numbers resonated with me on a deeply personal level: as a survivor of gender-based violence, I was searching for a way to express what cannot be put into words. At the same time, I have been developing an AI-based bot to support victims of violence, which pushed me to explore new forms of engaging with traumatic experience.<br><br>
-                Femicide is not an abstraction, but a parallel reality. We see the bodies, the tools, we hear the causes — all of that is explainable. But there is something else, something that awakens a feeling one cannot escape: smell. It spreads through space in a matter of minutes. A person cannot live without air for more than 180 seconds — hair absorbs it, skin retains it, and no amount of washing will erase the trace. That experience became the starting point.<br><br>
-                Scent as a Memory Trigger<br>
-                I chose scent as an uncontrollable trigger, inspired by PTSD research. According to APA (2022), smells linked to trauma activate the limbic system in 70% of survivors, causing flashbacks. Instead of using physical materials like blood or stone, I turned to synthesis, working with essential oils: vetiver, patchouli, geranium, sandalwood, cedarwood, and rose.<br><br>
-                Vetiver and patchouli form an earthy base, evoking the scent of wet stone after rain. Geranium and rose add a metallic note reminiscent of blood. Sandalwood and cedarwood stabilize the composition, symbolizing the inevitability of memory. This is not about aesthetics — it is about refusal to forget.<br><br>
-                I started with studio experiments, testing friends’ reactions to synthetic molecules (geosmin, 1-octen-3-ol). These tests revealed that scent could become a bridge between statistics and personal experience. “rajm” is not just an installation — it is a ritual in which the viewer becomes the keeper of trauma through scent, sound, and movement.<br><br>
-                Femicide: Scientific Context<br>
-                The term “femicide,” introduced by Diana Russell, refers to gender-based killings of women as a form of systemic violence. According to UN Women and UNODC (2023), 85,000 women and girls die every year; 51,100 of them at the hands of men they know; the home is the most dangerous place.<br><br>
-                My project refers to feminist art and Judith Butler’s ideas on corporeality and vulnerability, offering not just data fixation but its reinterpretation through sensory experience.<br><br>
-                Rajm: History and Symbolism<br>
-                Rajm (stoning) is mentioned in Islamic jurisprudence (fiqh) as a punishment for adultery, conditional upon the testimony of four witnesses or a confession. Historian William Montgomery Watt (1961) notes that such cases were rare (1–2%), but their symbolic function — public condemnation — left a lasting impact.<br><br>
-                In the Middle East, North Africa, and South Asia, rajm was used until the 19th century as a form of social control over women. Even today, this practice persists in some conflict zones, such as Afghanistan, where public executions resumed under Taliban control since 2021 (Human Rights Watch, 2023).<br><br>
-                My project interprets rajm as a universal trauma, comparable to the European witch trials. Scent becomes a way to activate these memories, linking past and present.<br><br>
-                Scent, Memory, and PTSD<br>
-                Olfaction is directly connected to the limbic system — the hippocampus and amygdala — responsible for emotion and memory. It bypasses the thalamus, making smell perception especially intense.<br><br>
-                According to Herz (2016) and APA (2022): Olfactory signals are recorded more strongly than visual ones; 70% of PTSD survivors experience flashbacks triggered by smell; Molecules like 1-octen-3-ol and geosmin recreate the scent of blood and wet stone.<br><br>
-                A Cambridge study (Dalton, 2019) revealed a 35% increase in PTSD symptoms among witnesses of rajm. Neuroscientist Michael Hasselmo (2017) notes that the amygdala stores emotional memory for long periods.<br><br>
-                My fragrance applies these principles. Vetiver and patchouli evoke earth after violence, geranium evokes blood.<br><br>
-                Scientific Rationale for the Fragrance<br>
-                Composition: Vetiver (40%) and patchouli (20%) contain khusimol and patchoulol — geosmin analogs; Geranium (15%) and rose (5%) provide citronellol and geraniol — substitutes for the scent of blood; Sandalwood (10%) and cedarwood (10%) add fixation and depth.<br><br>
-                Stages and Timeline<br>
-                July 10–12, 2025 — oil preparation<br>
-                July 13–17 — blend testing with 10 volunteers<br>
-                July 18–27 — maceration<br>
-                July 28 – August 1 — conservation<br>
-                August 2–13 — production of 50 bottles and bands, trial installation<br>
-                August 14–15 — final adjustments and packaging<br><br>
-                Project Budget<br>
-                Materials: Oils (6 types): €12 per 10 ml; Ethanol: €10 per liter; Glycerin: €12 per liter<br>
-                Components: Bottle: €10 per 50 ml; Stone engraving and shaping: €25; Stands: €200; Fabric: €50; Nails: €10; Panel: €50<br>
-                Exhibition: Display bottles (5 pcs): €150; Testers (5 pcs): €25; Bands: €50; Nail wall: €60; Additional stands: €200<br>
-                Total: Minimum €340, with reserve — approx. €400<br>
-                Additional: +€5 for each visitor who takes a sample<br><br>
-                Installation: Space and Structure<br>
-                Space: A 50 m² room with dim lighting (300 lux), gray textured walls. Accommodates 10–15 visitors at a time, interaction lasts 15–20 minutes.<br>
-                Zones: Zone 1 (Entrance): wooden chest with bands, bilingual instruction; Zone 2 (Center): 5 stone stands engraved with "رجم", fragrance bottles, audio track (rain, footsteps); Zone 3 (Exit): wall with 100 nails. The visitor hangs the band and receives a box with a scent sample and a stone<br><br>
-                Visitor Journey: Entrance: choosing and putting on the band; Center: inhaling the scent, listening to audio; Exit: hanging the band, receiving the sample box<br><br>
-                Logistics: Launch date: after August 16, 2025; Space: 50+ m²; Budget: from €1,000; Staff: 1 curator, 1 audio technician; Promotion: social media, press release<br><br>
-                Design Sketches (left to right): Bottle: 50 ml, dark glass set in stone, with atomizer. Weight — 200 g, height — 7 cm; Tester: 5 ml, frosted glass engraved with "رجم". Height — 4 cm; Band: white cotton, 5 × 30 cm, embroidered with "رجم", infused with glycerin
+            modalTitle.textContent = 'Описание: Rajm';
+            modalBody.innerHTML = `
+                <p>Concept — The project “rajm” began in April 2025, inspired by UN Women and UNODC data (2023), recording 85,000 annual femicide cases. Of these, 51,100 (60%) were by intimate partners or family. This personal resonance drove me to express the inexpressible.</p>
+                <p>Scent as Trigger — Using vetiver, patchouli, geranium, sandalwood, cedarwood, and rose, I crafted a fragrance evoking blood-soaked stone, tested with synthetic molecules like geosmin.</p>
+                <p>Installation — A 50 m² space with dim lighting, featuring scent vials, cotton bands, and a nail wall for visitor interaction.</p>
             `;
             modal.style.display = 'block';
         } else if (project === 'kombucha-essay') {
             modalTitle.textContent = 'Эссе: Сумки из чайного гриба';
-            modalText.innerHTML = 'Текст эссе будет добавлен позже, когда проект будет готов.';
+            modalBody.innerHTML = 'Текст эссе будет добавлен позже.';
             modal.style.display = 'block';
         } else if (project === 'kombucha-description') {
-            modalTitle.textContent = 'Описание проекта: Сумки из чайного гриба';
-            modalText.innerHTML = 'Описание проекта будет добавлено позже, когда работа над ним завершится.';
+            modalTitle.textContent = 'Описание: Сумки из чайного гриба';
+            modalBody.innerHTML = 'Описание будет добавлено позже.';
             modal.style.display = 'block';
         } else if (project === 'clay-essay') {
             modalTitle.textContent = 'Эссе: Уличный арт: Глиняные человечки';
-            modalText.innerHTML = 'Текст эссе будет добавлен позже, когда проект будет готов.';
+            modalBody.innerHTML = 'Текст эссе будет добавлен позже.';
             modal.style.display = 'block';
         } else if (project === 'clay-description') {
-            modalTitle.textContent = 'Описание проекта: Уличный арт: Глиняные человечки';
-            modalText.innerHTML = 'Описание проекта будет добавлено позже, когда работа над ним завершится.';
+            modalTitle.textContent = 'Описание: Уличный арт: Глиняные человечки';
+            modalBody.innerHTML = 'Описание будет добавлено позже.';
             modal.style.display = 'block';
         } else if (project === 'essay') {
             modalTitle.textContent = 'Моё эссе';
-            modalText.innerHTML = '';
+            modalBody.innerHTML = '';
             modal.style.display = 'block';
         }
     }
 
-    const workItems = document.querySelectorAll('.work-item[data-modal]');
-    workItems.forEach(item => {
+    const timelineItems = document.querySelectorAll('.timeline-item');
+    timelineItems.forEach(item => {
         item.addEventListener('click', () => {
             const project = item.getAttribute('data-modal');
             showModal(project);
@@ -191,4 +214,19 @@ document.addEventListener('DOMContentLoaded', () => {
             closeModal();
         }
     };
+
+    // Кастомный курсор
+    const cursor = document.createElement('div');
+    cursor.className = 'custom-cursor';
+    document.body.appendChild(cursor);
+
+    document.addEventListener('mousemove', (e) => {
+        cursor.style.left = e.pageX + 'px';
+        cursor.style.top = e.pageY + 'px';
+    });
+
+    document.querySelectorAll('a, button, .timeline-item').forEach(el => {
+        el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+        el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+    });
 });
