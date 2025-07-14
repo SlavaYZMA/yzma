@@ -3,88 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Слава Иванова | Art & Science</title>
+    <title>Слава Иванова | Портфолио</title>
     <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <canvas id="background-canvas"></canvas>
     <header>
         <h1 class="title">Слава Иванова</h1>
         <nav>
-            <a href="#about">Обо мне</a>
-            <a href="#works">Мои работы</a>
-            <a href="#process">Мой процесс</a>
+            <a href="#timeline">Таймлайн</a>
             <a href="#contact">Контакты</a>
         </nav>
     </header>
 
-    <section id="about" class="section">
-        <h2>Обо мне</h2>
-        <p>Я — Слава Иванова, исследовательница, превращающая экологию и человечность в искусство. Без художественного образования, как инженер-эколог и специалист по устойчивому развитию, я открыла новый мир в Берлине, вырвавшись из симуляции невежества к свободе создавать свои ценности. Работая с ароматами, я воскрешаю травмы через синтезированные композиции; с инсталляциями — создаю пространства для диалога; с цифровым медиа — переосмысливаю квантовые идеи. Вдохновлённая шепотом семейных историй и ритмом танца, я даю голос тем, чьи истории не всегда слышны, используя экологичные материалы. Моя миссия — вести диалог о человечности, исследуя травму, надежду и связь с природой через взаимодействие со зрителем. <button class="modal-btn" data-modal="essay">Моё эссе</button></p>
-    </section>
-
-    <section id="works" class="section timeline">
-        <h2>Мои работы</h2>
-        <div class="timeline-container">
-            <div class="timeline-line"></div>
-            <div class="timeline-dots">
-                <div class="timeline-dot" data-modal="chutkost" style="left: 5%;"></div>
-                <div class="timeline-dot" data-modal="serbian-dogbook" style="left: 20%;"></div>
-                <div class="timeline-dot" data-modal="sestra" style="left: 35%;"></div>
-                <div class="timeline-dot" data-modal="quantportraits" style="left: 50%;"></div>
-                <div class="timeline-dot" data-modal="rajm" style="left: 65%;"></div>
-                <div class="timeline-dot" data-modal="kombucha" style="left: 80%;"></div>
-                <div class="timeline-dot" data-modal="clay" style="left: 95%;"></div>
-            </div>
-            <div class="timeline-items">
-                <div class="timeline-item" data-modal="chutkost">
+    <main>
+        <section id="timeline" class="timeline">
+            <div class="timeline-container">
+                <!-- Период 2023 -->
+                <div class="timeline-item" data-modal="chutkost" style="left: 5%;">
                     <h3>Чуткость</h3>
-                    <p>Сентябрь 2023</p>
-                    <img src="sens.jpg" alt="Чуткость" class="timeline-thumb" onerror="this.style.display='none'; this.parentElement.style.display='none';">
+                    <p>2023</p>
+                    <img src="sens.jpg" alt="Чуткость" class="timeline-thumb">
                 </div>
-                <div class="timeline-item" data-modal="serbian-dogbook" style="margin-right: 100px;">
+
+                <!-- Период 2024 -->
+                <div class="timeline-item" data-modal="serbian-dogbook" style="left: 25%;">
                     <h3>Сербско-русский собачник</h3>
-                    <p>Март 2024</p>
-                    <img src="oggy.png" alt="Собачник" class="timeline-thumb" onerror="this.style.display='none'; this.parentElement.style.display='none';">
+                    <p>2024</p>
+                    <img src="oggy.png" alt="Собачник" class="timeline-thumb">
                 </div>
-                <div class="timeline-item" data-modal="sestra" style="margin-right: 100px;">
+                <div class="timeline-item" data-modal="sestra" style="left: 45%;">
                     <h3>Сестра</h3>
-                    <p>Сентябрь 2024</p>
-                    <img src="gorgona.png" alt="Сестра" class="timeline-thumb" onerror="this.style.display='none'; this.parentElement.style.display='none';">
+                    <p>2024</p>
+                    <img src="gorgona.png" alt="Сестра" class="timeline-thumb">
                 </div>
-                <div class="timeline-item" data-modal="quantportraits" style="margin-right: 120px;">
+
+                <!-- Период 2025 -->
+                <div class="timeline-item" data-modal="quantportraits" style="left: 65%;">
                     <h3>Квантовые портреты</h3>
-                    <p>Май 2025</p>
-                    <img src="quantportret.png" alt="Квантовые портреты" class="timeline-thumb" onerror="this.style.display='none'; this.parentElement.style.display='none';">
+                    <p>2025</p>
+                    <img src="quantportret.png" alt="Квантовые портреты" class="timeline-thumb">
                 </div>
-                <div class="timeline-item" data-modal="rajm" style="margin-right: 50px;">
+                <div class="timeline-item" data-modal="rajm" style="left: 75%;">
                     <h3>Rajm</h3>
-                    <p>Июнь 2025</p>
-                    <img src="Rajm.png" alt="Rajm" class="timeline-thumb" onerror="this.style.display='none'; this.parentElement.style.display='none';">
+                    <p>2025</p>
+                    <img src="Rajm.png" alt="Rajm" class="timeline-thumb">
                 </div>
-                <div class="timeline-item" data-modal="kombucha" style="margin-right: 50px;">
+                <div class="timeline-item" data-modal="kombucha" style="left: 85%;">
                     <h3>Сумки из чайного гриба</h3>
-                    <p>Июль 2025</p>
-                    <img src="teabag.png" alt="Сумка из чайного гриба" class="timeline-thumb" onerror="this.style.display='none'; this.parentElement.style.display='none';">
+                    <p>2025</p>
+                    <img src="teabag.png" alt="Сумка из чайного гриба" class="timeline-thumb">
                 </div>
-                <div class="timeline-item" data-modal="clay">
+                <div class="timeline-item" data-modal="clay" style="left: 95%;">
                     <h3>Уличный арт: Глиняные человечки</h3>
-                    <p>Июль 2025</p>
-                    <img src="Clayperson.png" alt="Глиняный человечек" class="timeline-thumb" onerror="this.style.display='none'; this.parentElement.style.display='none';">
+                    <p>2025</p>
+                    <img src="Clayperson.png" alt="Глиняный человечек" class="timeline-thumb">
                 </div>
             </div>
-        </div>
-    </section>
-
-    <section id="process" class="section">
-        <h2>Мой процесс</h2>
-        <div class="timeline">
-            <div class="timeline-item">Идея: Исследование квантовых концепций и экологических связей</div>
-            <div class="timeline-item">Эксперименты: Тестирование цифровых и материальных инструментов</div>
-            <div class="timeline-item">Реализация: Создание интерактивных инсталляций и зинов</div>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <section id="contact" class="section">
         <h2>Контакты</h2>
