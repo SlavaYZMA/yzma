@@ -1,24 +1,16 @@
 body {
     margin: 0;
-    font-family: 'Lora', serif;
-    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
-    color: #fff;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: #F6F6F6;
+    color: #0E0E0E;
     overflow-x: auto;
-}
-
-canvas {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    transition: transform 0.1s ease;
+    line-height: 1.6;
 }
 
 header {
     text-align: center;
     padding: 20px;
     position: relative;
-    z-index: 10;
 }
 
 .title {
@@ -29,7 +21,7 @@ header {
 
 nav a {
     margin: 0 15px;
-    color: #fff;
+    color: #0E0E0E;
     text-decoration: none;
     font-weight: 400;
 }
@@ -38,104 +30,48 @@ nav a {
     padding: 50px 20px;
     max-width: 1200px;
     margin: 0 auto;
-    position: relative;
-    z-index: 10;
 }
 
 .timeline {
     position: relative;
+    width: 100%;
     overflow-x: auto;
-    padding-bottom: 50px;
+    padding: 50px 0;
 }
 
 .timeline-container {
     position: relative;
-    min-width: 1500px;
-    padding: 20px 0;
-    box-sizing: border-box;
-}
-
-.timeline-line {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background: #fff;
-    transform: translateY(-50%);
-    z-index: 1;
-}
-
-.timeline-dots {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    width: 100%;
-    height: 10px;
-    transform: translateY(-50%);
-    z-index: 2;
-}
-
-.timeline-dot {
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    background: #fff;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: transform 0.3s ease, background 0.3s ease;
-}
-
-.timeline-dot:hover {
-    transform: scale(1.5);
-    background: #ccc;
-}
-
-.timeline-items {
-    position: relative;
     display: flex;
-    align-items: center;
+    min-width: 2000px; /* Достаточная ширина для горизонтальной прокрутки */
     height: 300px;
-    justify-content: center;
+    align-items: center;
 }
 
 .timeline-item {
-    width: 200px;
-    background: rgba(255, 255, 255, 0.1);
-    padding: 15px;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    text-align: left;
-    margin: 0 20px;
+    position: absolute;
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-.timeline-item:hover {
-    transform: translateY(-20px) scale(1.05);
-    box-shadow: 0 10px 20px rgba(255, 255, 255, 0.2);
+    text-align: center;
+    padding: 20px;
 }
 
 .timeline-item h3 {
-    margin: 0 0 5px;
-    font-size: 1.2em;
+    font-size: 1.5em;
     font-weight: 700;
+    margin: 10px 0 5px;
 }
 
 .timeline-item p {
+    font-size: 1em;
     margin: 5px 0;
-    font-size: 0.9em;
-    color: #ccc;
 }
 
 .timeline-thumb {
-    width: 180px;
+    width: 150px;
     aspect-ratio: 3 / 2;
     object-fit: cover;
-    border-radius: 5px;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
 .modal {
@@ -155,14 +91,15 @@ nav a {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: #222;
+    background: #F6F6F6;
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 0;
     width: 80%;
     max-width: 800px;
     max-height: 80vh;
     overflow-y: auto;
     animation: slideIn 0.3s ease;
+    color: #0E0E0E;
 }
 
 .modal-body {
@@ -175,7 +112,7 @@ nav a {
 
 .modal-section h4 {
     margin: 0 0 10px;
-    color: #ccc;
+    color: #0E0E0E;
 }
 
 .close {
@@ -184,29 +121,68 @@ nav a {
     right: 20px;
     font-size: 24px;
     cursor: pointer;
+    color: #0E0E0E;
 }
 
 .photo-gallery img {
     margin: 10px;
+    max-width: 100%;
 }
 
 .custom-cursor {
-    position: fixed;
-    width: 20px;
-    height: 20px;
-    background: #fff;
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 10000;
-    transition: transform 0.1s ease, width 0.1s ease, height 0.1s ease;
+    display: none; /* Отключаем кастомный курсор для минимализма */
 }
 
-.custom-cursor.hover {
-    transform: scale(2);
-    width: 30px;
-    height: 30px;
+/* Анимация появления при скроллинге */
+.timeline-item {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
+.timeline-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Медиа-запросы для мобильных устройств */
+@media (max-width: 768px) {
+    .timeline {
+        overflow-x: hidden;
+        padding: 20px 0;
+    }
+
+    .timeline-container {
+        flex-direction: column;
+        min-width: auto;
+        height: auto;
+        align-items: flex-start;
+    }
+
+    .timeline-item {
+        position: static;
+        width: 100%;
+        margin-bottom: 40px;
+        flex-direction: row;
+        align-items: center;
+        text-align: left;
+    }
+
+    .timeline-item h3 {
+        font-size: 1.2em;
+    }
+
+    .timeline-item p {
+        font-size: 0.9em;
+    }
+
+    .timeline-thumb {
+        width: 100px;
+        margin-right: 20px;
+    }
+}
+
+/* Анимация */
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
@@ -215,31 +191,4 @@ nav a {
 @keyframes slideIn {
     from { transform: translate(-50%, -60%); opacity: 0; }
     to { transform: translate(-50%, -50%); opacity: 1; }
-}
-
-@media (max-width: 768px) {
-    .timeline-container {
-        width: 100%;
-    }
-    .timeline-items {
-        flex-direction: column;
-        height: auto;
-    }
-    .timeline-item {
-        width: 80%;
-        margin: 20px 0;
-    }
-    .timeline-item:hover {
-        transform: translateY(-10px) scale(1.05);
-    }
-    .timeline-line {
-        top: 0;
-        left: 20px;
-        width: 2px;
-        height: 100%;
-        transform: none;
-    }
-    .timeline-dots {
-        display: none;
-    }
 }
