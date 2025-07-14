@@ -142,6 +142,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 Design Sketches (left to right): Bottle: 50 ml, dark glass set in stone, with atomizer. Weight — 200 g, height — 7 cm; Tester: 5 ml, frosted glass engraved with "رجم". Height — 4 cm; Band: white cotton, 5 × 30 cm, embroidered with "رجم", infused with glycerin
             `;
             modal.style.display = 'block';
+        } else if (project === 'kombucha-essay') {
+            modalTitle.textContent = 'Эссе: Сумки из чайного гриба';
+            modalText.innerHTML = 'Текст эссе будет добавлен позже, когда проект будет готов.';
+            modal.style.display = 'block';
+        } else if (project === 'kombucha-description') {
+            modalTitle.textContent = 'Описание проекта: Сумки из чайного гриба';
+            modalText.innerHTML = 'Описание проекта будет добавлено позже, когда работа над ним завершится.';
+            modal.style.display = 'block';
         }
     }
 
