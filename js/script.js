@@ -225,7 +225,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    const timelineItems = document.querySelectorAll('.timeline-item, .timeline-dot');
+    const timelineItems = document.querySelectorAll('.timeline-item');
     timelineItems.forEach(item => {
         item.addEventListener('click', () => {
             const project = item.getAttribute('data-modal');
@@ -262,30 +262,19 @@ document.addEventListener('DOMContentLoaded', () => {
         cursor.style.top = e.pageY + 'px';
     });
 
-    document.querySelectorAll('a, button, .timeline-item, .timeline-dot').forEach(el => {
+    document.querySelectorAll('a, button, .timeline-item').forEach(el => {
         el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
         el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
     });
 
-    // Параллакс-эффект для всех секций
-    const sections = document.querySelectorAll('.section');
-    const timelineItems = document.querySelectorAll('.timeline-item');
-    function applyParallax() {
+    // Параллакс-эффект
+    const parallaxElements = document.querySelectorAll('.timeline-item');
+    window.addEventListener('scroll', () => {
         const scrollPosition = window.pageYOffset;
-
-        sections.forEach(section => {
-            const speed = 0.2; // Скорость параллакса
-            section.style.backgroundPositionY = `${-scrollPosition * speed}px`;
+        parallaxElements.forEach(el => {
+            const speed = 0.2;
+            el.style.transform = `translateX(${scrollPosition * speed * -0.1}px)`;
         });
-
-        timelineItems.forEach(item => {
-            const randomOffset = Math.random() * 100 - 50; // Смещение от -50px до +50px
-            item.style.transform = `translateY(${randomOffset}px) translateX(${scrollPosition * -0.1}px)`;
-        });
-
-        canvas.style.transform = `translateY(${scrollPosition * 0.05}px)`;
-    }
-
-    applyParallax(); // При загрузке
-    window.addEventListener('scroll', applyParallax);
+        canvas.style.transform = `translateY(${scrollPosition * 0.1}px)`;
+    });
 });
