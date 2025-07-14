@@ -174,7 +174,7 @@ document.addEventListener('DOMContentLoaded', () => {
             modalBody.innerHTML = `
                 <div class="modal-section">
                     <h4>Описание</h4>
-                    <p>Июль 2025 — Глиняные фигурки, вдохновлённые дорожными знаками, рассказывающие о жизни после знаков.</p>
+                    <p>Июль 2025 — Глиняные фигурки, вдохновлённые дорожными знаками.</p>
                 </div>
                 <div class="modal-section">
                     <h4>Медиа</h4>
