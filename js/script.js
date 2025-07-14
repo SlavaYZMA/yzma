@@ -181,8 +181,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="modal-section">
                     <h4>Медиа</h4>
                     <div class="photo-gallery">
-                        <img src="images/potman.webp" alt="Человечек 1" width="200" onerror="this.style.display='none';">
-                        <img src="images/streetman.webp" alt="Человечек 2" width="200" onerror="this.style.display='none';">
+                        <img src="images/yzma/potman.webp" alt="Человечек 1" width="200" onerror="this.style.display='none';">
+                        <img src="images/yzma/streetman.webp" alt="Человечек 2" width="200" onerror="this.style.display='none';">
                     </div>
                 </div>
                 <div class="modal-section">
@@ -213,7 +213,7 @@ document.addEventListener('DOMContentLoaded', () => {
             modal.style.display = 'block';
         } else if (project === 'kombucha-description') {
             modalTitle.textContent = 'Описание: Сумки из чайного гриба';
-            modalBody.innerHTML = 'Описание будет добавлен позже.';
+            modalBody.innerHTML = 'Описание будет добавлено позже.';
             modal.style.display = 'block';
         } else if (project === 'clay-essay') {
             modalTitle.textContent = 'Эссе: Уличный арт: Глиняные человечки';
@@ -278,7 +278,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const scrollPosition = window.pageYOffset;
         parallaxElements.forEach(el => {
             const speed = 0.2;
-            el.style.transform = `translateY(${scrollPosition * speed}px)`;
+            el.style.transform = `translateX(${scrollPosition * speed * -0.1}px)`;
         });
         canvas.style.transform = `translateY(${scrollPosition * 0.1}px)`;
     });
