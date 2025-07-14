@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
                 <div class="modal-section">
                     <h4>Медиа</h4>
-                    <img src="images/photo_2025-07-14_13-55-26.jpg" alt="Собачник" width="400" onerror="this.style.display='none';">
+                    <img src="images/photo_2025-07-14_13-55-26.jpg" alt="Собачник" width="400" onerror="this.style.display='none'; this.parentElement.style.display='none';">
                 </div>
             `;
             modal.style.display = 'block';
@@ -110,7 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
                 <div class="modal-section">
                     <h4>Медиа</h4>
-                    <img src="images/sestra.jpg" alt="Сестра" width="400" onerror="this.style.display='none';">
+                    <img src="images/sestra.jpg" alt="Сестра" width="400" onerror="this.style.display='none'; this.parentElement.style.display='none';">
                 </div>
             `;
             modal.style.display = 'block';
@@ -123,7 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
                 <div class="modal-section">
                     <h4>Медиа</h4>
-                    <img src="images/quantportrait.jpg" alt="Квантовые портреты" width="400" onerror="this.style.display='none';">
+                    <img src="images/quantportrait.jpg" alt="Квантовые портреты" width="400" onerror="this.style.display='none'; this.parentElement.style.display='none';">
                 </div>
             `;
             modal.style.display = 'block';
@@ -137,9 +137,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="modal-section">
                     <h4>Медиа</h4>
                     <div class="photo-gallery">
-                        <img src="images/20250710_2103_Conceptual Perfume Sculpture_simple_compose_01jztvf40ffyxrcfjb3dryvb2n.png" alt="Скульптура" width="200" onerror="this.style.display='none';">
-                        <img src="images/20250711_1212_Ritual Stone Art_simple_compose_01jzwffgadev5ay3etmtyktv3e.png" alt="Каменное искусство" width="200" onerror="this.style.display='none';">
-                        <img src="images/20250711_1218_Ritual Silk Wristband_simple_compose_01jzwfszsmf8arav9qtbx1krwp.png" alt="Шелковый браслет" width="200" onerror="this.style.display='none';">
+                        <img src="images/20250710_2103_Conceptual Perfume Sculpture_simple_compose_01jztvf40ffyxrcfjb3dryvb2n.png" alt="Скульптура" width="200" onerror="this.style.display='none'; this.parentElement.style.display='none';">
+                        <img src="images/20250711_1212_Ritual Stone Art_simple_compose_01jzwffgadev5ay3etmtyktv3e.png" alt="Каменное искусство" width="200" onerror="this.style.display='none'; this.parentElement.style.display='none';">
+                        <img src="images/20250711_1218_Ritual Silk Wristband_simple_compose_01jzwfszsmf8arav9qtbx1krwp.png" alt="Шелковый браслет" width="200" onerror="this.style.display='none'; this.parentElement.style.display='none';">
                     </div>
                 </div>
                 <div class="modal-section">
@@ -159,9 +159,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="modal-section">
                     <h4>Медиа</h4>
                     <div class="photo-gallery">
-                        <img src="images/kombucha1.jpg" alt="Сумка 1" width="200" style="display: none;" onerror="this.style.display='none';">
-                        <img src="images/kombucha2.jpg" alt="Сумка 2" width="200" style="display: none;" onerror="this.style.display='none';">
-                        <img src="images/kombucha3.jpg" alt="Сумка 3" width="200" style="display: none;" onerror="this.style.display='none';">
+                        <img src="images/kombucha1.jpg" alt="Сумка 1" width="200" style="display: none;" onerror="this.style.display='none'; this.parentElement.style.display='none';">
+                        <img src="images/kombucha2.jpg" alt="Сумка 2" width="200" style="display: none;" onerror="this.style.display='none'; this.parentElement.style.display='none';">
+                        <img src="images/kombucha3.jpg" alt="Сумка 3" width="200" style="display: none;" onerror="this.style.display='none'; this.parentElement.style.display='none';">
                     </div>
                 </div>
                 <div class="modal-section">
@@ -181,8 +181,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="modal-section">
                     <h4>Медиа</h4>
                     <div class="photo-gallery">
-                        <img src="images/yzma/potman.webp" alt="Человечек 1" width="200" onerror="this.style.display='none';">
-                        <img src="images/yzma/streetman.webp" alt="Человечек 2" width="200" onerror="this.style.display='none';">
+                        <img src="images/yzma/potman.webp" alt="Человечек 1" width="200" onerror="this.style.display='none'; this.parentElement.style.display='none';">
+                        <img src="images/yzma/streetman.webp" alt="Человечек 2" width="200" onerror="this.style.display='none'; this.parentElement.style.display='none';">
                     </div>
                 </div>
                 <div class="modal-section">
@@ -230,7 +230,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    const timelineItems = document.querySelectorAll('.timeline-item');
+    const timelineItems = document.querySelectorAll('.timeline-item, .timeline-dot');
     timelineItems.forEach(item => {
         item.addEventListener('click', () => {
             const project = item.getAttribute('data-modal');
@@ -267,7 +267,7 @@ document.addEventListener('DOMContentLoaded', () => {
         cursor.style.top = e.pageY + 'px';
     });
 
-    document.querySelectorAll('a, button, .timeline-item').forEach(el => {
+    document.querySelectorAll('a, button, .timeline-item, .timeline-dot').forEach(el => {
         el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
         el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
     });
