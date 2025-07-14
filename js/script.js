@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
                 <div class="modal-section">
                     <h4>Медиа</h4>
-                    <img src="photo_2025-07-14_13-55-26.jpg" alt="Собачник" width="400" onerror="this.style.display='none'; this.parentElement.style.display='none';">
+                    <img src="oggy.png" alt="Собачник" width="400" onerror="this.style.display='none'; this.parentElement.style.display='none';">
                 </div>
             `;
             modal.style.display = 'block';
@@ -110,7 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
                 <div class="modal-section">
                     <h4>Медиа</h4>
-                    <img src="sestra.jpg" alt="Сестра" width="400" onerror="this.style.display='none'; this.parentElement.style.display='none';">
+                    <img src="gorgona.png" alt="Сестра" width="400" onerror="this.style.display='none'; this.parentElement.style.display='none';">
                 </div>
             `;
             modal.style.display = 'block';
@@ -123,7 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
                 <div class="modal-section">
                     <h4>Медиа</h4>
-                    <img src="yzmaport/quantportret.png" alt="Квантовые портреты" width="400" onerror="this.style.display='none'; this.parentElement.style.display='none';">
+                    <img src="quantportret.png" alt="Квантовые портреты" width="400" onerror="this.style.display='none'; this.parentElement.style.display='none';">
                 </div>
             `;
             modal.style.display = 'block';
@@ -137,9 +137,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="modal-section">
                     <h4>Медиа</h4>
                     <div class="photo-gallery">
-                        <img src="20250710_2103_Conceptual Perfume Sculpture_simple_compose_01jztvf40ffyxrcfjb3dryvb2n.png" alt="Скульптура" width="200" onerror="this.style.display='none'; this.parentElement.style.display='none';">
-                        <img src="20250711_1212_Ritual Stone Art_simple_compose_01jzwffgadev5ay3etmtyktv3e.png" alt="Каменное искусство" width="200" onerror="this.style.display='none'; this.parentElement.style.display='none';">
-                        <img src="20250711_1218_Ritual Silk Wristband_simple_compose_01jzwfszsmf8arav9qtbx1krwp.png" alt="Шелковый браслет" width="200" onerror="this.style.display='none'; this.parentElement.style.display='none';">
+                        <img src="Rajm.png" alt="Скульптура" width="200" onerror="this.style.display='none'; this.parentElement.style.display='none';">
                     </div>
                 </div>
                 <div class="modal-section">
@@ -159,7 +157,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="modal-section">
                     <h4>Медиа</h4>
                     <div class="photo-gallery">
-                        <img src="kombucha.jpg" alt="Сумка 1" width="200" style="display: none;" onerror="this.style.display='none'; this.parentElement.style.display='none';">
+                        <img src="teabag.png" alt="Сумка 1" width="200" onerror="this.style.display='none'; this.parentElement.style.display='none';">
                     </div>
                 </div>
                 <div class="modal-section">
@@ -179,8 +177,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="modal-section">
                     <h4>Медиа</h4>
                     <div class="photo-gallery">
-                        <img src="potman.webp" alt="Человечек 1" width="200" onerror="this.style.display='none'; this.parentElement.style.display='none';">
-                        <img src="streetman.webp" alt="Человечек 2" width="200" onerror="this.style.display='none'; this.parentElement.style.display='none';">
+                        <img src="Clayperson.png" alt="Человечек 1" width="200" onerror="this.style.display='none'; this.parentElement.style.display='none';">
                     </div>
                 </div>
                 <div class="modal-section">
@@ -270,13 +267,20 @@ document.addEventListener('DOMContentLoaded', () => {
         el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
     });
 
-    // Параллакс-эффект
+    // Параллакс-эффект и рандомное смещение
     const parallaxElements = document.querySelectorAll('.timeline-item');
+    function applyRandomOffset() {
+        parallaxElements.forEach(el => {
+            const randomOffset = Math.random() * 100 - 50; // Смещение от -50px до +50px
+            el.style.transform = `translateY(${randomOffset}px)`;
+        });
+    }
+    applyRandomOffset(); // При загрузке
     window.addEventListener('scroll', () => {
         const scrollPosition = window.pageYOffset;
         parallaxElements.forEach(el => {
             const speed = 0.2;
-            el.style.transform = `translateX(${scrollPosition * speed * -0.1}px)`;
+            el.style.transform = `translateX(${scrollPosition * speed * -0.1}px) translateY(${getComputedStyle(el).transform.match(/(-?\d+\.?\d*)/)[0] || 0}px)`;
         });
         canvas.style.transform = `translateY(${scrollPosition * 0.1}px)`;
     });
