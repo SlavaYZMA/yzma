@@ -48,7 +48,7 @@ nav a {
 
 .timeline-container {
     position: relative;
-    min-width: 1500px; /* Увеличим для десктопов */
+    min-width: 1500px;
     padding: 20px 0;
     box-sizing: border-box;
 }
@@ -92,8 +92,6 @@ nav a {
     display: flex;
     align-items: center;
     height: 300px;
-    justify-content: space-between; /* Равномерное распределение */
-    gap: 50px; /* Фиксированное расстояние между блоками */
 }
 
 .timeline-item {
