@@ -60,9 +60,8 @@ body {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    margin-top: 20px; /* Смещаем вниз до уровня дат */
-    position: absolute;
-    top: -20px; /* Выравнивание по верхним датам */
+    margin-top: 0; /* Выравниваем по верхней границе таймлайна */
+    position: relative; /* Убираем абсолютное позиционирование */
 }
 
 .legend-item {
@@ -117,6 +116,7 @@ body {
     border-radius: 10px;
     text-align: left;
     width: 10.46%; /* Два промежутка (2 * 5.23%) */
+    box-sizing: border-box; /* Учитываем padding в ширине */
 }
 
 .completed .timeline-content {
