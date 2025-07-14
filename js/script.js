@@ -158,6 +158,10 @@ document.addEventListener('DOMContentLoaded', () => {
             modalTitle.textContent = 'Описание проекта: Уличный арт: Глиняные человечки';
             modalText.innerHTML = 'Описание проекта будет добавлено позже, когда работа над ним завершится.';
             modal.style.display = 'block';
+        } else if (project === 'essay') {
+            modalTitle.textContent = 'Моё эссе';
+            modalText.innerHTML = '';
+            modal.style.display = 'block';
         }
     }
 
