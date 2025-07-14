@@ -1,283 +1,116 @@
-const canvas = document.getElementById('background-canvas');
-const ctx = canvas.getContext('2d');
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Слава Иванова | Art & Science</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <canvas id="background-canvas"></canvas>
+    <header>
+        <h1 class="title">Слава Иванова</h1>
+        <nav>
+            <a href="#about">Обо мне</a>
+            <a href="#works">Мои работы</a>
+            <a href="#process">Мой процесс</a>
+            <a href="#contact">Контакты</a>
+        </nav>
+    </header>
 
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+    <section id="about" class="section">
+        <h2>Обо мне</h2>
+        <p>Я — Слава Иванова, исследовательница, превращающая экологию и человечность в искусство. Без художественного образования, как инженер-эколог и специалист по устойчивому развитию, я открыла новый мир в Берлине, вырвавшись из симуляции невежества к свободе создавать свои ценности. Работая с ароматами, я воскрешаю травмы через синтезированные композиции; с инсталляциями — создаю пространства для диалога; с цифровым медиа — переосмысливаю квантовые идеи. Вдохновлённая шепотом семейных историй и ритмом танца, я даю голос тем, чьи истории не всегда слышны, используя экологичные материалы. Моя миссия — вести диалог о человечности, исследуя травму, надежду и связь с природой через взаимодействие со зрителем. <button class="modal-btn" data-modal="essay">Моё эссе</button></p>
+    </section>
 
-const particles = [];
-const particleCount = 50;
-
-class Particle {
-    constructor() {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
-        this.size = Math.random() * 2 + 1;
-        this.speedX = Math.random() * 1 - 0.5;
-        this.speedY = Math.random() * 1 - 0.5;
-    }
-    update() {
-        this.x += this.speedX;
-        this.y += this.speedY;
-        if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
-        if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
-    }
-    draw() {
-        ctx.fillStyle = 'rgba(255, 255, 255, 0.5)';
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fill();
-    }
-}
-
-for (let i = 0; i < particleCount; i++) {
-    particles.push(new Particle());
-}
-
-function animate() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    for (let particle of particles) {
-        particle.update();
-        particle.draw();
-    }
-    requestAnimationFrame(animate);
-}
-
-animate();
-
-window.addEventListener('resize', () => {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-});
-
-function closeModal() {
-    const modal = document.getElementById('modal');
-    modal.style.display = 'none';
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-    const navLinks = document.querySelectorAll('nav a');
-    navLinks.forEach(link => {
-        link.addEventListener('click', (e) => {
-            e.preventDefault();
-            const targetId = link.getAttribute('href');
-            document.querySelector(targetId).scrollIntoView({ behavior: 'smooth' });
-        });
-    });
-
-    const modal = document.getElementById('modal');
-    const modalTitle = document.getElementById('modal-title');
-    const modalBody = document.getElementById('modal-body');
-
-    function showModal(project) {
-        modalTitle.textContent = '';
-        modalBody.innerHTML = '';
-
-        if (project === 'chutkost') {
-            modalTitle.textContent = 'Чуткость';
-            modalBody.innerHTML = `
-                <div class="modal-section">
-                    <h4>Описание</h4>
-                    <p>Сентябрь 2023 — Медиа-инсталляция с интерактивной шкатулкой из кокосового воска. Совместно с Ириной Даниличевой, Александрой Далибах и Яной Сорокиной. <a href="https://art-and-science-center.timepad.ru/event/2592578/" target="_blank">Подробнее</a>.</p>
+    <section id="works" class="section timeline">
+        <h2>Мои работы</h2>
+        <div class="timeline-container">
+            <div class="timeline-line"></div>
+            <div class="timeline-dots">
+                <div class="timeline-dot" data-modal="chutkost" style="left: 5%;"></div>
+                <div class="timeline-dot" data-modal="serbian-dogbook" style="left: 20%;"></div>
+                <div class="timeline-dot" data-modal="sestra" style="left: 35%;"></div>
+                <div class="timeline-dot" data-modal="quantportraits" style="left: 50%;"></div>
+                <div class="timeline-dot" data-modal="rajm" style="left: 65%;"></div>
+                <div class="timeline-dot" data-modal="kombucha" style="left: 80%;"></div>
+                <div class="timeline-dot" data-modal="clay" style="left: 95%;"></div>
+            </div>
+            <div class="timeline-items">
+                <div class="timeline-item" data-modal="chutkost">
+                    <h3>Чуткость</h3>
+                    <p>Сентябрь 2023</p>
+                    <p class="description">Медиа-инсталляция с интерактивной шкатулкой из кокосового воска.</p>
+                    <img src="sens.jpg" alt="Чуткость" class="timeline-thumb" onerror="this.style.display='none'; this.parentElement.style.display='none';">
                 </div>
-                <div class="modal-section">
-                    <h4>Медиа</h4>
-                    <video controls width="400">
-                        <source src="sensetivy.mp4" type="video/mp4">
-                        Ваш браузер не поддерживает видео.
-                    </video>
+                <div class="timeline-item" data-modal="serbian-dogbook" style="margin-right: 100px;">
+                    <h3>Сербско-русский собачник</h3>
+                    <p>Март 2024</p>
+                    <p class="description">Зин с иллюстрациями об общении с собачниками на сербском.</p>
+                    <img src="oggy.png" alt="Собачник" class="timeline-thumb" onerror="this.style.display='none'; this.parentElement.style.display='none';">
                 </div>
-            `;
-            modal.style.display = 'block';
-        } else if (project === 'serbian-dogbook') {
-            modalTitle.textContent = 'Сербско-русский собачник';
-            modalBody.innerHTML = `
-                <div class="modal-section">
-                    <h4>Описание</h4>
-                    <p>Март 2024 — Зин формата А6 (6 страниц) с иллюстрациями, посвящённый общению с собачниками на сербском языке. <a href="serbian-dogbook.pdf" type="application/pdf" target="_blank">PDF</a>.</p>
+                <div class="timeline-item" data-modal="sestra" style="margin-right: 100px;">
+                    <h3>Сестра</h3>
+                    <p>Сентябрь 2024</p>
+                    <p class="description">ИИ-бот для поддержки жертв гендерного насилия.</p>
+                    <img src="gorgona.png" alt="Сестра" class="timeline-thumb" onerror="this.style.display='none'; this.parentElement.style.display='none';">
                 </div>
-                <div class="modal-section">
-                    <h4>Медиа</h4>
-                    <img src="photo_2025-07-14_13-55-26.jpg" alt="Собачник" width="400" onerror="this.style.display='none'; this.parentElement.style.display='none';">
+                <div class="timeline-item" data-modal="quantportraits" style="margin-right: 120px;">
+                    <h3>Квантовые портреты</h3>
+                    <p>Май 2025</p>
+                    <p class="description">Интерактивный проект с квантовыми интерпретациями пикселей.</p>
+                    <img src="yzmaport/quantportret.png" alt="Квантовые портреты" class="timeline-thumb" onerror="this.style.display='none'; this.parentElement.style.display='none';">
                 </div>
-            `;
-            modal.style.display = 'block';
-        } else if (project === 'sestra') {
-            modalTitle.textContent = 'Сестра';
-            modalBody.innerHTML = `
-                <div class="modal-section">
-                    <h4>Описание</h4>
-                    <p>Сентябрь 2024 — ИИ-бот для поддержки жертв гендерного насилия в Telegram. <a href="https://t.me/svudabot" target="_blank">Бот Горгона</a>.</p>
+                <div class="timeline-item" data-modal="rajm" style="margin-right: 50px;">
+                    <h3>Rajm</h3>
+                    <p>Июнь 2025</p>
+                    <p class="description">Проект о травме через аромат и инсталляцию.</p>
+                    <img src="Rajm.png" alt="Rajm" class="timeline-thumb" onerror="this.style.display='none'; this.parentElement.style.display='none';">
                 </div>
-                <div class="modal-section">
-                    <h4>Медиа</h4>
-                    <img src="sestra.jpg" alt="Сестра" width="400" onerror="this.style.display='none'; this.parentElement.style.display='none';">
+                <div class="timeline-item" data-modal="kombucha" style="margin-right: 50px;">
+                    <h3>Сумки из чайного гриба</h3>
+                    <p>Июль 2025</p>
+                    <p class="description">Экологичный проект с био-материалами.</p>
+                    <img src="teabag.png" alt="Сумка из чайного гриба" class="timeline-thumb" onerror="this.style.display='none'; this.parentElement.style.display='none';">
                 </div>
-            `;
-            modal.style.display = 'block';
-        } else if (project === 'quantportraits') {
-            modalTitle.textContent = 'Квантовые портреты';
-            modalBody.innerHTML = `
-                <div class="modal-section">
-                    <h4>Описание</h4>
-                    <p>Май 2025 — Интерактивный art&science проект, где пиксели интерпретируются как квантовые объекты. <a href="https://quantportrait.netlify.app/" target="_blank">Посетить сайт</a>.</p>
+                <div class="timeline-item" data-modal="clay">
+                    <h3>Уличный арт: Глиняные человечки</h3>
+                    <p>Июль 2025</p>
+                    <p class="description">Глиняные фигурки, вдохновлённые дорожными знаками.</p>
+                    <img src="Clayperson.png" alt="Глиняный человечек" class="timeline-thumb" onerror="this.style.display='none'; this.parentElement.style.display='none';">
                 </div>
-                <div class="modal-section">
-                    <h4>Медиа</h4>
-                    <img src="yzma/quantportret.png" alt="Квантовые портреты" width="400" id="modal-quantportret-img" onerror="this.src='yzmaport/quantportret.png'; this.onerror=null;">
-                </div>
-            `;
-            modal.style.display = 'block';
-        } else if (project === 'rajm') {
-            modalTitle.textContent = 'Rajm';
-            modalBody.innerHTML = `
-                <div class="modal-section">
-                    <h4>Описание</h4>
-                    <p>Июнь 2025 — Проект о травме через аромат, вдохновлённый данными о фемициде.</p>
-                </div>
-                <div class="modal-section">
-                    <h4>Медиа</h4>
-                    <div class="photo-gallery">
-                        <img src="20250710_2103_Conceptual Perfume Sculpture_simple_compose_01jztvf40ffyxrcfjb3dryvb2n.png" alt="Скульптура" width="200" onerror="this.style.display='none'; this.parentElement.style.display='none';">
-                        <img src="20250711_1212_Ritual Stone Art_simple_compose_01jzwffgadev5ay3etmtyktv3e.png" alt="Каменное искусство" width="200" onerror="this.style.display='none'; this.parentElement.style.display='none';">
-                        <img src="20250711_1218_Ritual Silk Wristband_simple_compose_01jzwfszsmf8arav9qtbx1krwp.png" alt="Шелковый браслет" width="200" onerror="this.style.display='none'; this.parentElement.style.display='none';">
-                    </div>
-                </div>
-                <div class="modal-section">
-                    <h4>Дополнительно</h4>
-                    <button class="modal-btn" data-modal="rajm-essay">Эссе</button>
-                    <button class="modal-btn" data-modal="rajm-description">Описание</button>
-                </div>
-            `;
-            modal.style.display = 'block';
-        } else if (project === 'kombucha') {
-            modalTitle.textContent = 'Сумки из чайного гриба';
-            modalBody.innerHTML = `
-                <div class="modal-section">
-                    <h4>Описание</h4>
-                    <p>Июль 2025 — Экологичный проект в разработке, исследующий эстетический потенциал био-материалов.</p>
-                </div>
-                <div class="modal-section">
-                    <h4>Медиа</h4>
-                    <div class="photo-gallery">
-                        <img src="kombucha.jpg" alt="Сумка 1" width="200" style="display: none;" onerror="this.style.display='none'; this.parentElement.style.display='none';">
-                    </div>
-                </div>
-                <div class="modal-section">
-                    <h4>Дополнительно</h4>
-                    <button class="modal-btn" data-modal="kombucha-essay">Эссе</button>
-                    <button class="modal-btn" data-modal="kombucha-description">Описание</button>
-                </div>
-            `;
-            modal.style.display = 'block';
-        } else if (project === 'clay') {
-            modalTitle.textContent = 'Уличный арт: Глиняные человечки';
-            modalBody.innerHTML = `
-                <div class="modal-section">
-                    <h4>Описание</h4>
-                    <p>Июль 2025 — Глиняные фигурки, вдохновлённые дорожными знаками.</p>
-                </div>
-                <div class="modal-section">
-                    <h4>Медиа</h4>
-                    <div class="photo-gallery">
-                        <img src="potman.webp" alt="Человечек 1" width="200" onerror="this.style.display='none'; this.parentElement.style.display='none';">
-                        <img src="streetman.webp" alt="Человечек 2" width="200" onerror="this.style.display='none'; this.parentElement.style.display='none';">
-                    </div>
-                </div>
-                <div class="modal-section">
-                    <h4>Дополнительно</h4>
-                    <button class="modal-btn" data-modal="clay-essay">Эссе</button>
-                    <button class="modal-btn" data-modal="clay-description">Описание</button>
-                </div>
-            `;
-            modal.style.display = 'block';
-        } else if (project === 'rajm-essay') {
-            modalTitle.textContent = 'Эссе: Rajm';
-            modalBody.innerHTML = `
-                <p>The rajm project was conceived in April 2025 and is based on data from UN Women and UNODC (2023). According to this data, approximately 85,000 cases of femicide are recorded each year, 60% of which are committed by intimate partners or family members. These numbers may seem dry and depersonalized — but for me, they became deeply personal. I spent a long time searching for a way to express an experience that is nearly impossible to articulate.</p>
-                <p>Femicide is not an abstract concept. It is a reality that exists alongside us, regardless of time. We see the bodies, the tools, we hear the motives — these things help us make sense of what happened. But what is it that provokes the inevitable reaction? Smell. It fills the space within minutes. A person cannot live without air for more than three minutes — breath is inevitable. Hair, skin — everything absorbs scent. And no amount of washing will erase its trace. This was the sensation that sparked my research.</p>
-            `;
-            modal.style.display = 'block';
-        } else if (project === 'rajm-description') {
-            modalTitle.textContent = 'Описание: Rajm';
-            modalBody.innerHTML = `
-                <p>Concept — The project “rajm” began in April 2025, inspired by UN Women and UNODC data (2023), recording 85,000 annual femicide cases. Of these, 51,100 (60%) were by intimate partners or family. This personal resonance drove me to express the inexpressible.</p>
-                <p>Scent as Trigger — Using vetiver, patchouli, geranium, sandalwood, cedarwood, and rose, I crafted a fragrance evoking blood-soaked stone, tested with synthetic molecules like geosmin.</p>
-                <p>Installation — A 50 m² space with dim lighting, featuring scent vials, cotton bands, and a nail wall for visitor interaction.</p>
-            `;
-            modal.style.display = 'block';
-        } else if (project === 'kombucha-essay') {
-            modalTitle.textContent = 'Эссе: Сумки из чайного гриба';
-            modalBody.innerHTML = 'Текст эссе будет добавлен позже.';
-            modal.style.display = 'block';
-        } else if (project === 'kombucha-description') {
-            modalTitle.textContent = 'Описание: Сумки из чайного гриба';
-            modalBody.innerHTML = 'Описание будет добавлено позже.';
-            modal.style.display = 'block';
-        } else if (project === 'clay-essay') {
-            modalTitle.textContent = 'Эссе: Уличный арт: Глиняные человечки';
-            modalBody.innerHTML = 'Текст эссе будет добавлен позже.';
-            modal.style.display = 'block';
-        } else if (project === 'clay-description') {
-            modalTitle.textContent = 'Описание: Уличный арт: Глиняные человечки';
-            modalBody.innerHTML = 'Описание будет добавлено позже.';
-            modal.style.display = 'block';
-        } else if (project === 'essay') {
-            modalTitle.textContent = 'Моё эссе';
-            modalBody.innerHTML = '';
-            modal.style.display = 'block';
-        }
-    }
+            </div>
+        </div>
+    </section>
 
-    const timelineItems = document.querySelectorAll('.timeline-item, .timeline-dot');
-    timelineItems.forEach(item => {
-        item.addEventListener('click', () => {
-            const project = item.getAttribute('data-modal');
-            showModal(project);
-        });
-    });
+    <section id="process" class="section">
+        <h2>Мой процесс</h2>
+        <div class="timeline">
+            <div class="timeline-item">Идея: Исследование квантовых концепций и экологических связей</div>
+            <div class="timeline-item">Эксперименты: Тестирование цифровых и материальных инструментов</div>
+            <div class="timeline-item">Реализация: Создание интерактивных инсталляций и зинов</div>
+        </div>
+    </section>
 
-    const modalButtons = document.querySelectorAll('.modal-btn');
-    modalButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            const project = button.getAttribute('data-modal');
-            showModal(project);
-        });
-    });
+    <section id="contact" class="section">
+        <h2>Контакты</h2>
+        <p>Напишите мне: <a href="mailto:vladaiwanova@email.com">vladaiwanova@email.com</a></p>
+        <a href="https://t.me/vladaiwanova" target="_blank">Telegram</a>
+    </section>
 
-    const closeButton = document.querySelector('.close');
-    if (closeButton) {
-        closeButton.addEventListener('click', closeModal);
-    }
+    <footer>
+        <p>© 2025 Слава Иванова. Все права защищены.</p>
+    </footer>
 
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            closeModal();
-        }
-    };
+    <!-- Модальное окно для экспликации -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">×</span>
+            <h3 id="modal-title"></h3>
+            <div id="modal-body" class="modal-body"></div>
+        </div>
+    </div>
 
-    // Кастомный курсор
-    const cursor = document.createElement('div');
-    cursor.className = 'custom-cursor';
-    document.body.appendChild(cursor);
-
-    document.addEventListener('mousemove', (e) => {
-        cursor.style.left = e.pageX + 'px';
-        cursor.style.top = e.pageY + 'px';
-    });
-
-    document.querySelectorAll('a, button, .timeline-item, .timeline-dot').forEach(el => {
-        el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
-        el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
-    });
-
-    // Параллакс-эффект
-    const parallaxElements = document.querySelectorAll('.timeline-item');
-    window.addEventListener('scroll', () => {
-        const scrollPosition = window.pageYOffset;
-        parallaxElements.forEach(el => {
-            const speed = 0.2;
-            el.style.transform = `translateX(${scrollPosition * speed * -0.1}px)`;
-        });
-        canvas.style.transform = `translateY(${scrollPosition * 0.1}px)`;
-    });
-});
+    <script src="js/script.js" defer></script>
+</body>
+</html>
