@@ -1,11 +1,13 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Открытие модального окна
     document.querySelectorAll('.process-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
+        btn.addEventListener('click', (event) => {
+            event.preventDefault(); // Предотвращаем прокрутку
             const modalId = btn.getAttribute('data-modal');
             const modal = document.getElementById(modalId);
             if (modal) {
                 modal.style.display = 'block';
+                document.body.style.overflow = 'hidden'; // Блокируем прокрутку
             }
         });
     });
@@ -16,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const modal = closeBtn.closest('.modal');
             if (modal) {
                 modal.style.display = 'none';
+                document.body.style.overflow = 'auto'; // Восстанавливаем прокрутку
             }
         });
     });
@@ -25,6 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelectorAll('.modal').forEach(modal => {
             if (event.target === modal) {
                 modal.style.display = 'none';
+                document.body.style.overflow = 'auto'; // Восстанавливаем прокрутку
             }
         });
     });
@@ -50,5 +54,6 @@ function closeModal(modalId) {
     const modal = document.getElementById(modalId);
     if (modal) {
         modal.style.display = 'none';
+        document.body.style.overflow = 'auto'; // Восстанавливаем прокрутку
     }
 }
