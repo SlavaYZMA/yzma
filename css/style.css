@@ -50,13 +50,24 @@ nav a {
     height: 100vh;
 }
 
-.timeline-legend {
-    position: absolute;
+.timeline-title {
+    position: fixed;
     left: 20px;
     top: 20px;
+    font-size: 2em;
+    font-weight: 700;
+    color: #F6F6F6;
+    z-index: 10;
+}
+
+.timeline-legend {
+    position: fixed;
+    left: 20px;
+    top: 60px;
     display: flex;
     flex-direction: column;
     gap: 10px;
+    z-index: 10;
 }
 
 .legend-item {
@@ -75,10 +86,11 @@ nav a {
 .timeline-container {
     position: relative;
     display: flex;
-    min-width: 2500px; /* Увеличено для раздвижения проектов */
+    min-width: 2500px;
     height: 100%;
     align-items: flex-start;
     justify-content: flex-start;
+    margin-left: 100px; /* Смещаем, чтобы линии не заходили на название */
 }
 
 .timeline-grid-line {
@@ -117,11 +129,11 @@ nav a {
 }
 
 .upcoming .timeline-content {
-    background-color: #666666;
+    background-color: #F4A261;
 }
 
 .in-progress .timeline-content {
-    background-color: #999999;
+    background-color: #B39DDB;
 }
 
 .timeline-content h3 {
@@ -264,9 +276,18 @@ nav a {
         font-size: 0.8em;
     }
 
+    .timeline-title {
+        position: static;
+        margin-bottom: 10px;
+    }
+
     .timeline-legend {
         position: static;
         margin-bottom: 20px;
+    }
+
+    .timeline-container {
+        margin-left: 0;
     }
 }
 
