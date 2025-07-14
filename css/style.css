@@ -3,7 +3,7 @@ body {
     font-family: Arial, sans-serif;
     background: #1a1a1a;
     color: #fff;
-    overflow-x: auto;
+    overflow-x: hidden; /* Скрываем горизонтальную прокрутку */
 }
 
 canvas {
@@ -50,6 +50,7 @@ nav a {
     position: relative;
     min-width: 1500px;
     padding: 20px 0;
+    min-height: 100vh; /* Таймлайн занимает всю высоту экрана */
     box-sizing: border-box;
 }
 
@@ -91,7 +92,7 @@ nav a {
     position: relative;
     display: flex;
     align-items: center;
-    height: 300px;
+    height: auto; /* Убираем фиксированную высоту */
 }
 
 .timeline-item {
@@ -102,6 +103,7 @@ nav a {
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     text-align: center;
+    position: relative; /* Для смещения */
 }
 
 .timeline-item:hover {
@@ -113,6 +115,7 @@ nav a {
     font-size: 0.9em;
     color: #ccc;
     margin: 5px 0;
+    display: none; /* Убираем описание с таймлайна */
 }
 
 .timeline-thumb {
@@ -121,6 +124,15 @@ nav a {
     object-fit: cover;
     border-radius: 5px;
     margin-top: 10px;
+}
+
+/* Скрытие полосы прокрутки */
+.timeline-container::-webkit-scrollbar {
+    display: none;
+}
+.timeline-container {
+    -ms-overflow-style: none; /* IE и Edge */
+    scrollbar-width: none; /* Firefox */
 }
 
 .modal {
@@ -205,6 +217,7 @@ nav a {
 @media (max-width: 768px) {
     .timeline-container {
         width: 100%;
+        min-height: auto; /* Адаптивная высота на мобильных */
     }
     .timeline-items {
         flex-direction: column;
