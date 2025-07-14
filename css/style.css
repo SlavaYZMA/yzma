@@ -49,6 +49,7 @@ nav a {
 .timeline-container {
     position: relative;
     white-space: nowrap;
+    width: 2000px; /* Фиксированная ширина для горизонтальной прокрутки */
     padding: 20px 0;
 }
 
@@ -60,6 +61,30 @@ nav a {
     height: 2px;
     background: #fff;
     transform: translateY(-50%);
+}
+
+.timeline-dots {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    transform: translateY(-50%);
+}
+
+.timeline-dot {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.timeline-dot:hover {
+    transform: scale(1.5);
+    background: #ccc;
 }
 
 .timeline-items {
@@ -174,6 +199,9 @@ nav a {
 }
 
 @media (max-width: 768px) {
+    .timeline-container {
+        width: 1000px; /* Уменьшаем ширину для мобильных */
+    }
     .timeline-items {
         flex-direction: column;
         height: auto;
@@ -194,5 +222,8 @@ nav a {
         width: 2px;
         height: 100%;
         transform: none;
+    }
+    .timeline-dots {
+        display: none; /* Скрываем точки на мобильных */
     }
 }
