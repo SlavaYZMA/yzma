@@ -7,47 +7,52 @@ body {
     line-height: 1.6;
 }
 
-header {
-    text-align: center;
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
     padding: 20px;
-    position: relative;
+    background: rgba(14, 14, 14, 0.9);
+    z-index: 1000;
 }
 
-.title {
-    margin: 0;
-    font-size: 2.5em;
+.site-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 25pt;
     font-weight: 700;
+    margin: 0;
+    color: #F6F6F6;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
-nav a {
-    margin: 0 15px;
+.main-nav {
+    margin-left: 20px;
+}
+
+.nav-btn {
+    margin-left: 15px;
     color: #F6F6F6;
     text-decoration: none;
     font-weight: 400;
+    padding: 5px 10px;
+    transition: color 0.3s;
 }
 
-.section {
-    padding: 50px 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.process-items {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.process-item {
-    padding: 10px;
+.nav-btn:hover {
+    color: #B39DDB;
 }
 
 .timeline {
     position: relative;
     width: 100%;
     overflow-x: auto;
-    padding: 0;
+    padding-top: 80px; /* Пространство под фиксированным заголовком */
     height: 100vh;
+    margin-top: 0;
 }
 
 .timeline-title {
@@ -55,6 +60,7 @@ nav a {
     font-size: 2em;
     font-weight: 700;
     color: #F6F6F6;
+    margin-left: 0;
 }
 
 .timeline-legend {
@@ -62,6 +68,7 @@ nav a {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    margin-top: 10px;
 }
 
 .legend-item {
@@ -84,7 +91,7 @@ nav a {
     height: 100%;
     align-items: flex-start;
     justify-content: flex-start;
-    margin-left: 50%; /* Отодвигаем начало на 50% ширины */
+    margin-left: 50%; /* Отодвигаем начало на 50% */
 }
 
 .timeline-grid-line {
@@ -115,7 +122,7 @@ nav a {
     padding: 15px;
     border-radius: 10px;
     text-align: left;
-    width: 10.46%; /* Ширина как два промежутка (2 * 5.23%) */
+    width: 10.46%; /* Два промежутка (2 * 5.23%) */
 }
 
 .completed .timeline-content {
@@ -145,12 +152,60 @@ nav a {
 }
 
 .timeline-thumb {
-    width: 100%; /* Занимает всю ширину контейнера */
+    width: 100%;
     aspect-ratio: 3 / 2;
     object-fit: cover;
     margin-bottom: 10px;
     border-radius: 5px;
 }
+
+.section {
+    padding: 50px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.process-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px 0;
+}
+
+.process-btn {
+    padding: 10px 20px;
+    color: #F6F6F6;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.process-btn:hover {
+    transform: scale(1.1);
+}
+
+.round { border-radius: 50%; background-color: #3498db; }
+.square { border-radius: 0; background-color: #2ecc71; }
+.oval { border-radius: 20px; background-color: #e74c3c; }
+.triangle { clip-path: polygon(50% 0%, 0% 100%, 100% 100%); background-color: #f1c40f; }
+.rect { border-radius: 5px; background-color: #9b59b6; }
+.circle { border-radius: 50%; background-color: #e67e22; }
+.hexagon { clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%); background-color: #ff69b4; }
+.diamond { clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); background-color: #1abc9c; }
+.star { clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%); background-color: #f1c40f; }
+.pentagon { clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%); background-color: #8e44ad; }
+
+.blue { background-color: #3498db; }
+.green { background-color: #2ecc71; }
+.red { background-color: #e74c3c; }
+.yellow { background-color: #f1c40f; }
+.purple { background-color: #9b59b6; }
+.orange { background-color: #e67e22; }
+.pink { background-color: #ff69b4; }
+.teal { background-color: #1abc9c; }
+.gold { background-color: #f1c40f; }
+.indigo { background-color: #8e44ad; }
 
 .modal {
     display: none;
@@ -225,8 +280,24 @@ nav a {
 
 /* Медиа-запросы для мобильных устройств */
 @media (max-width: 768px) {
+    .site-header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px;
+    }
+
+    .main-nav {
+        margin-top: 10px;
+        margin-left: 0;
+    }
+
+    .nav-btn {
+        margin: 5px 0;
+        display: block;
+    }
+
     .timeline {
-        overflow-x: hidden;
+        padding-top: 60px;
         height: auto;
     }
 
@@ -235,6 +306,7 @@ nav a {
         min-width: auto;
         height: auto;
         align-items: flex-start;
+        margin-left: 0;
     }
 
     .timeline-item {
@@ -246,7 +318,7 @@ nav a {
     }
 
     .timeline-content {
-        width: auto; /* Адаптивная ширина на мобильных */
+        width: auto;
     }
 
     .timeline-content h3 {
@@ -279,8 +351,14 @@ nav a {
         padding-left: 10px;
     }
 
-    .timeline-container {
-        margin-left: 0;
+    .process-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .process-btn {
+        width: 100%;
+        text-align: center;
     }
 }
 
