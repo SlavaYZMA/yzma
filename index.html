@@ -1,97 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Квантовые портреты</title>
-    <link rel="stylesheet" href="./css/style.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/p5.min.js"></script>
-    <script src="./js/main.js"></script>
-    <script src="./js/particles.js"></script>
+    <title>Влада Иванова | Art & Science</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Квантовые портреты</h1>
-            <p>Минова А.Н. | Art & Science</p>
-        </header>
-        <main>
-            <section id="intro" class="step active">
-                <div class="text-block">Пожалуйста, выберите язык: <button onclick="setLanguageAndNext('ru')">RU</button> / <button onclick="setLanguageAndNext('en')">ENG</button></div>
-            </section>
-            <section id="upload" class="step">
-                <div class="text-block">Загрузите изображение для квантового портрета</div>
-                <input type="file" id="uploadImage" accept="image/*" onchange="loadImage(event)">
-                <button onclick="showArchive()">Выбрать из архива</button>
-            </section>
-            <section id="animation" class="step">
-                <div id="portrait-container"></div>
-                <div class="text-block">Двигайте курсор для коллапса суперпозиции</div>
-                <button onclick="savePortrait()">Сохранить</button>
-            </section>
-            <section id="result" class="step">
-                <div class="text-block">Ваш квантовый портрет сохранён</div>
-                <img id="saved-portrait" style="display:none;">
-                <button onclick="shareObservation()">Поделиться</button>
-                <button onclick="restart()">Начать заново</button>
-            </section>
-        </main>
-        <footer>
-            <button id="about">Об авторах</button>
-        </footer>
-    </div>
+    <header>
+        <h1>Влада Иванова</h1>
+        <nav>
+            <a href="#about">Обо мне</a>
+            <a href="#works">Мои работы</a>
+            <a href="#process">Мой процесс</a>
+            <a href="#contact">Контакты</a>
+        </nav>
+    </header>
 
-    <script>
-        window.quantumSketch = new p5(function(sketch) {
-            sketch.setup = function() {
-                sketch.createCanvas(600, 600).parent('portrait-container');
-                sketch.background(20);
-                sketch.noLoop();
-            };
+    <section id="about" class="section">
+        <h2>Обо мне</h2>
+        <p>Я — Влада Иванова, артистка, исследующая пересечение искусства и науки. Мои работы вдохновлены квантовой физикой, философией и природой, создавая диалог между материальным и нематериальным.</p>
+    </section>
 
-            sketch.draw = function() {
-                sketch.background(20);
-                if (window.particles) window.updateParticles(sketch);
-            };
+    <section id="works" class="section">
+        <h2>Мои работы</h2>
+        <div class="gallery">
+            <div class="work-item">Работа 1</div>
+            <div class="work-item">Работа 2</div>
+            <div class="work-item">Работа 3</div>
+        </div>
+    </section>
 
-            sketch.mouseMoved = function() { if (window.currentStep === 2) window.observeParticles(sketch, sketch.mouseX, sketch.mouseY); };
-        });
+    <section id="process" class="section">
+        <h2>Мой процесс</h2>
+        <p>Мой творческий путь начинается с идеи, перетекает в эксперименты с материалами и технологиями, а затем обретает форму в финальном произведении.</p>
+    </section>
 
-        function loadImage(event) {
-            const file = event.target.files[0];
-            if (file) {
-                window.quantumSketch.loadImage(URL.createObjectURL(file), img => {
-                    window.img = img;
-                    window.initializeParticles(img);
-                    window.moveToNextStep(2);
-                });
-            }
-        }
+    <section id="contact" class="section">
+        <h2>Контакты</h2>
+        <p>Свяжитесь со мной: <a href="mailto:vladaiwanova@email.com">vladaiwanova@email.com</a></p>
+        <a href="https://t.me/vladaiwanova" target="_blank">Telegram</a>
+    </section>
 
-        function showArchive() {
-            alert('Архив в разработке — скоро будет доступен!');
-            // Здесь можно добавить модальное окно с архивом позже
-        }
+    <footer>
+        <p>&copy; 2025 Влада Иванова. Все права защищены.</p>
+    </footer>
 
-        function savePortrait() {
-            if (window.quantumSketch) {
-                window.quantumSketch.saveCanvas('quantum_portrait', 'png');
-                window.moveToNextStep(3);
-            }
-        }
-
-        function shareObservation() {
-            window.open('https://t.me/quantum_portrait_channel', '_blank');
-            window.moveToNextStep(3);
-        }
-
-        function restart() {
-            window.location.reload();
-        }
-
-        document.getElementById('about').addEventListener('click', () => {
-            window.location.href = './about.html';
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
