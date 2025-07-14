@@ -49,6 +49,12 @@ window.addEventListener('resize', () => {
     canvas.height = window.innerHeight;
 });
 
+// Функция закрытия модального окна
+function closeModal() {
+    const modal = document.getElementById('modal');
+    modal.style.display = 'none';
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     const navLinks = document.querySelectorAll('nav a');
     navLinks.forEach(link => {
@@ -80,10 +86,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    function closeModal() {
-        modal.style.display = 'none';
-    }
-
     // Привязка события клика к элементам с data-modal
     const workItems = document.querySelectorAll('.work-item[data-modal]');
     workItems.forEach(item => {
@@ -92,6 +94,12 @@ document.addEventListener('DOMContentLoaded', () => {
             showModal(project);
         });
     });
+
+    // Привязка события к крестику
+    const closeButton = document.querySelector('.close');
+    if (closeButton) {
+        closeButton.addEventListener('click', closeModal);
+    }
 
     window.onclick = function(event) {
         if (event.target == modal) {
