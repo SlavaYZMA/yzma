@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Слава Иванова | Art & Science</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap">
     <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 </head>
 <body>
     <canvas id="background-canvas"></canvas>
@@ -28,41 +28,50 @@
         <h2>Мои работы</h2>
         <div class="timeline-container">
             <div class="timeline-line"></div>
+            <div class="timeline-dots">
+                <div class="timeline-dot" data-modal="chutkost" style="left: 5%;"></div>
+                <div class="timeline-dot" data-modal="serbian-dogbook" style="left: 20%;"></div>
+                <div class="timeline-dot" data-modal="sestra" style="left: 35%;"></div>
+                <div class="timeline-dot" data-modal="quantportraits" style="left: 50%;"></div>
+                <div class="timeline-dot" data-modal="rajm" style="left: 65%;"></div>
+                <div class="timeline-dot" data-modal="kombucha" style="left: 80%;"></div>
+                <div class="timeline-dot" data-modal="clay" style="left: 95%;"></div>
+            </div>
             <div class="timeline-items">
                 <div class="timeline-item" data-modal="chutkost">
                     <h3>Чуткость</h3>
                     <p>Сентябрь 2023</p>
-                    <img src="sens.jpg" alt="Чуткость" class="timeline-thumb" onerror="this.style.display='none';">
+                    <img src="sens.jpg" alt="Чуткость" class="timeline-thumb" onerror="this.style.display='none'; this.parentElement.style.display='none';">
                 </div>
-                <div class="timeline-item" data-modal="serbian-dogbook">
+                <div class="timeline-item" data-modal="serbian-dogbook" style="margin-right: 100px;">
                     <h3>Сербско-русский собачник</h3>
                     <p>Март 2024</p>
-                    <img src="oggy.png" alt="Собачник" class="timeline-thumb" onerror="this.style.display='none';">
+                    <img src="oggy.png" alt="Собачник" class="timeline-thumb" onerror="this.style.display='none'; this.parentElement.style.display='none';">
                 </div>
-                <div class="timeline-item" data-modal="sestra">
+                <div class="timeline-item" data-modal="sestra" style="margin-right: 100px;">
                     <h3>Сестра</h3>
                     <p>Сентябрь 2024</p>
-                    <img src="gorgona.png" alt="Сестра" class="timeline-thumb" onerror="this.style.display='none';">
+                    <img src="gorgona.png" alt="Сестра" class="timeline-thumb" onerror="this.style.display='none'; this.parentElement.style.display='none';">
                 </div>
-                <div class="timeline-item" data-modal="quantportraits">
+                <div class="timeline-item" data-modal="quantportraits" style="margin-right: 120px;">
                     <h3>Квантовые портреты</h3>
                     <p>Май 2025</p>
-                    <img src="quantportret.png" alt="Квантовые портреты" class="timeline-thumb" onerror="this.style.display='none';">
+                    <img src="quantportret.png" alt="Квантовые портреты" class="timeline-thumb" onerror="this.style.display='none'; this.parentElement.style.display='none';">
                 </div>
-                <div class="timeline-item" data-modal="rajm">
+                <div class="timeline-item" data-modal="rajm" style="margin-right: 50px;">
                     <h3>Rajm</h3>
                     <p>Июнь 2025</p>
-                    <img src="Rajm.png" alt="Rajm" class="timeline-thumb" onerror="this.style.display='none';">
+                    <img src="Rajm.png" alt="Rajm" class="timeline-thumb" onerror="this.style.display='none'; this.parentElement.style.display='none';">
                 </div>
-                <div class="timeline-item" data-modal="kombucha">
+                <div class="timeline-item" data-modal="kombucha" style="margin-right: 50px;">
                     <h3>Сумки из чайного гриба</h3>
                     <p>Июль 2025</p>
-                    <img src="teabag.png" alt="Сумка из чайного гриба" class="timeline-thumb" onerror="this.style.display='none';">
+                    <img src="teabag.png" alt="Сумка из чайного гриба" class="timeline-thumb" onerror="this.style.display='none'; this.parentElement.style.display='none';">
                 </div>
                 <div class="timeline-item" data-modal="clay">
                     <h3>Уличный арт: Глиняные человечки</h3>
                     <p>Июль 2025</p>
-                    <img src="Clayperson.png" alt="Глиняный человечек" class="timeline-thumb" onerror="this.style.display='none';">
+                    <img src="Clayperson.png" alt="Глиняный человечек" class="timeline-thumb" onerror="this.style.display='none'; this.parentElement.style.display='none';">
                 </div>
             </div>
         </div>
