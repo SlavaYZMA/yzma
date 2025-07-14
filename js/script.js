@@ -157,7 +157,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="modal-section">
                     <h4>Медиа</h4>
                     <div class="photo-gallery">
-                        <img src="teabag.png" alt="Сумка 1" width="200" onerror="this.style.display='none'; this.parentElement.style.display='none';">
+                        <img src="teabag.png" alt="Сумка 1" width="200" style="display: none;" onerror="this.style.display='none'; this.parentElement.style.display='none';">
                     </div>
                 </div>
                 <div class="modal-section">
@@ -225,7 +225,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    const timelineItems = document.querySelectorAll('.timeline-item');
+    const timelineItems = document.querySelectorAll('.timeline-item, .timeline-dot');
     timelineItems.forEach(item => {
         item.addEventListener('click', () => {
             const project = item.getAttribute('data-modal');
@@ -262,7 +262,7 @@ document.addEventListener('DOMContentLoaded', () => {
         cursor.style.top = e.pageY + 'px';
     });
 
-    document.querySelectorAll('a, button, .timeline-item').forEach(el => {
+    document.querySelectorAll('a, button, .timeline-item, .timeline-dot').forEach(el => {
         el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
         el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
     });
