@@ -91,7 +91,7 @@ nav a {
     position: relative;
     display: inline-flex;
     align-items: center;
-    height: 200px;
+    height: 250px; /* Увеличим высоту для текста */
 }
 
 .timeline-item {
