@@ -4,6 +4,8 @@ body {
     background: #1a1a1a;
     color: #fff;
     overflow-x: hidden; /* Скрываем горизонтальную прокрутку */
+    overflow-y: scroll; /* Разрешаем вертикальную прокрутку, но скрываем полосу */
+    scroll-behavior: smooth; /* Плавная прокрутка */
 }
 
 canvas {
@@ -12,6 +14,15 @@ canvas {
     left: 0;
     z-index: -1;
     transition: transform 0.1s ease;
+}
+
+/* Скрытие полосы прокрутки для Edge и других браузеров */
+body::-webkit-scrollbar {
+    display: none;
+}
+body {
+    -ms-overflow-style: none; /* Edge и IE */
+    scrollbar-width: none; /* Firefox */
 }
 
 header {
@@ -38,19 +49,31 @@ nav a {
     margin: 0 auto;
     position: relative;
     z-index: 10;
+    min-height: 100vh; /* Каждая секция занимает всю высоту экрана */
+}
+
+/* Параллакс для секций */
+#about {
+    background: url('data:image/png;base64,iVBORw0KG...'); /* Пример фона, замени на свой */
+    background-attachment: fixed;
+    background-size: cover;
+}
+#works, #process, #contact {
+    background-attachment: fixed;
+    background-size: cover;
 }
 
 .timeline {
     position: relative;
-    overflow-x: auto;
-    padding-bottom: 50px;
+    overflow-x: hidden; /* Убираем видимую прокрутку внутри таймлайна */
+    padding-bottom: 0;
 }
 
 .timeline-container {
     position: relative;
     min-width: 1500px;
     padding: 20px 0;
-    min-height: 100vh; /* Таймлайн занимает всю высоту экрана */
+    min-height: 100vh; /* Таймлайн на всю высоту между #about и #process */
     box-sizing: border-box;
 }
 
@@ -92,7 +115,7 @@ nav a {
     position: relative;
     display: flex;
     align-items: center;
-    height: auto; /* Убираем фиксированную высоту */
+    height: auto;
 }
 
 .timeline-item {
@@ -103,7 +126,7 @@ nav a {
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     text-align: center;
-    position: relative; /* Для смещения */
+    position: relative;
 }
 
 .timeline-item:hover {
@@ -115,7 +138,7 @@ nav a {
     font-size: 0.9em;
     color: #ccc;
     margin: 5px 0;
-    display: none; /* Убираем описание с таймлайна */
+    display: none;
 }
 
 .timeline-thumb {
@@ -124,15 +147,6 @@ nav a {
     object-fit: cover;
     border-radius: 5px;
     margin-top: 10px;
-}
-
-/* Скрытие полосы прокрутки */
-.timeline-container::-webkit-scrollbar {
-    display: none;
-}
-.timeline-container {
-    -ms-overflow-style: none; /* IE и Edge */
-    scrollbar-width: none; /* Firefox */
 }
 
 .modal {
@@ -217,7 +231,7 @@ nav a {
 @media (max-width: 768px) {
     .timeline-container {
         width: 100%;
-        min-height: auto; /* Адаптивная высота на мобильных */
+        min-height: auto;
     }
     .timeline-items {
         flex-direction: column;
