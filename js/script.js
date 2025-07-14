@@ -75,86 +75,128 @@ document.addEventListener('DOMContentLoaded', () => {
         if (project === 'chutkost') {
             modalTitle.textContent = 'Чуткость';
             modalBody.innerHTML = `
-                <p>2023 — Медиа-инсталляция с интерактивной шкатулкой из кокосового воска. Совместно с Ириной Даниличевой, Александрой Далибах и Яной Сорокиной. <a href="https://art-and-science-center.timepad.ru/event/2592578/" target="_blank">Подробнее</a>.</p>
-                <video controls width="400">
-                    <source src="sensetivy.mp4" type="video/mp4">
-                    Ваш браузер не поддерживает видео.
-                </video>
+                <div class="modal-section">
+                    <h4>Описание</h4>
+                    <p>Сентябрь 2023 — Медиа-инсталляция с интерактивной шкатулкой из кокосового воска. Совместно с Ириной Даниличевой, Александрой Далибах и Яной Сорокиной. <a href="https://art-and-science-center.timepad.ru/event/2592578/" target="_blank">Подробнее</a>.</p>
+                </div>
+                <div class="modal-section">
+                    <h4>Медиа</h4>
+                    <video controls width="400">
+                        <source src="images/sensetivy.mp4" type="video/mp4">
+                        Ваш браузер не поддерживает видео.
+                    </video>
+                </div>
             `;
             modal.style.display = 'block';
         } else if (project === 'serbian-dogbook') {
             modalTitle.textContent = 'Сербско-русский собачник';
             modalBody.innerHTML = `
-                <p>2023 — Зин формата А6 (6 страниц) с иллюстрациями, посвящённый общению с собачниками на сербском языке. <a href="serbian-dogbook.pdf" type="application/pdf" target="_blank">PDF</a>.</p>
-                <img src="photo_2025-07-14_13-55-26.jpg" alt="Собачник" width="400">
+                <div class="modal-section">
+                    <h4>Описание</h4>
+                    <p>Март 2024 — Зин формата А6 (6 страниц) с иллюстрациями, посвящённый общению с собачниками на сербском языке. <a href="serbian-dogbook.pdf" type="application/pdf" target="_blank">PDF</a>.</p>
+                </div>
+                <div class="modal-section">
+                    <h4>Медиа</h4>
+                    <img src="images/photo_2025-07-14_13-55-26.jpg" alt="Собачник" width="400" onerror="this.style.display='none';">
+                </div>
             `;
             modal.style.display = 'block';
         } else if (project === 'sestra') {
             modalTitle.textContent = 'Сестра';
             modalBody.innerHTML = `
-                <p>2024 — ИИ-бот для поддержки жертв гендерного насилия в Telegram. <a href="https://t.me/svudabot" target="_blank">Бот Горгона</a>.</p>
-                <img src="sestra.jpg" alt="Сестра" width="400">
+                <div class="modal-section">
+                    <h4>Описание</h4>
+                    <p>Сентябрь 2024 — ИИ-бот для поддержки жертв гендерного насилия в Telegram. <a href="https://t.me/svudabot" target="_blank">Бот Горгона</a>.</p>
+                </div>
+                <div class="modal-section">
+                    <h4>Медиа</h4>
+                    <img src="images/sestra.jpg" alt="Сестра" width="400" onerror="this.style.display='none';">
+                </div>
             `;
             modal.style.display = 'block';
         } else if (project === 'quantportraits') {
             modalTitle.textContent = 'Квантовые портреты';
             modalBody.innerHTML = `
-                <p>2024 — Интерактивный art&science проект, где пиксели интерпретируются как квантовые объекты. <a href="https://quantportrait.netlify.app/" target="_blank">Посетить сайт</a>.</p>
-                <img src="quantportrait.jpg" alt="Квантовые портреты" width="400">
+                <div class="modal-section">
+                    <h4>Описание</h4>
+                    <p>Май 2025 — Интерактивный art&science проект, где пиксели интерпретируются как квантовые объекты. <a href="https://quantportrait.netlify.app/" target="_blank">Посетить сайт</a>.</p>
+                </div>
+                <div class="modal-section">
+                    <h4>Медиа</h4>
+                    <img src="images/quantportrait.jpg" alt="Квантовые портреты" width="400" onerror="this.style.display='none';">
+                </div>
             `;
             modal.style.display = 'block';
         } else if (project === 'rajm') {
             modalTitle.textContent = 'Rajm';
             modalBody.innerHTML = `
-                <p>2025 — Проект о травме через аромат, вдохновлённый данными о фемициде. В разработке с апреля 2025.</p>
-                <button class="modal-btn" data-modal="rajm-essay">Эссе</button>
-                <button class="modal-btn" data-modal="rajm-description">Описание</button>
-                <div class="photo-gallery">
-                    <img src="20250710_2103_Conceptual Perfume Sculpture_simple_compose_01jztvf40ffyxrcfjb3dryvb2n.png" alt="Скульптура" width="200">
-                    <img src="20250711_1212_Ritual Stone Art_simple_compose_01jzwffgadev5ay3etmtyktv3e.png" alt="Каменное искусство" width="200">
-                    <img src="20250711_1218_Ritual Silk Wristband_simple_compose_01jzwfszsmf8arav9qtbx1krwp.png" alt="Шелковый браслет" width="200">
+                <div class="modal-section">
+                    <h4>Описание</h4>
+                    <p>Июнь 2025 — Проект о травме через аромат, вдохновлённый данными о фемициде.</p>
+                </div>
+                <div class="modal-section">
+                    <h4>Медиа</h4>
+                    <div class="photo-gallery">
+                        <img src="images/20250710_2103_Conceptual Perfume Sculpture_simple_compose_01jztvf40ffyxrcfjb3dryvb2n.png" alt="Скульптура" width="200" onerror="this.style.display='none';">
+                        <img src="images/20250711_1212_Ritual Stone Art_simple_compose_01jzwffgadev5ay3etmtyktv3e.png" alt="Каменное искусство" width="200" onerror="this.style.display='none';">
+                        <img src="images/20250711_1218_Ritual Silk Wristband_simple_compose_01jzwfszsmf8arav9qtbx1krwp.png" alt="Шелковый браслет" width="200" onerror="this.style.display='none';">
+                    </div>
+                </div>
+                <div class="modal-section">
+                    <h4>Дополнительно</h4>
+                    <button class="modal-btn" data-modal="rajm-essay">Эссе</button>
+                    <button class="modal-btn" data-modal="rajm-description">Описание</button>
                 </div>
             `;
             modal.style.display = 'block';
         } else if (project === 'kombucha') {
             modalTitle.textContent = 'Сумки из чайного гриба';
             modalBody.innerHTML = `
-                <p>2025 — Экологичный проект в разработке, исследующий эстетический потенциал био-материалов.</p>
-                <button class="modal-btn" data-modal="kombucha-essay">Эссе</button>
-                <button class="modal-btn" data-modal="kombucha-description">Описание</button>
-                <div class="photo-gallery">
-                    <img src="" alt="Сумка 1" width="200" style="display: none;">
-                    <img src="" alt="Сумка 2" width="200" style="display: none;">
-                    <img src="" alt="Сумка 3" width="200" style="display: none;">
+                <div class="modal-section">
+                    <h4>Описание</h4>
+                    <p>Июль 2025 — Экологичный проект в разработке, исследующий эстетический потенциал био-материалов.</p>
+                </div>
+                <div class="modal-section">
+                    <h4>Медиа</h4>
+                    <div class="photo-gallery">
+                        <img src="images/kombucha1.jpg" alt="Сумка 1" width="200" style="display: none;" onerror="this.style.display='none';">
+                        <img src="images/kombucha2.jpg" alt="Сумка 2" width="200" style="display: none;" onerror="this.style.display='none';">
+                        <img src="images/kombucha3.jpg" alt="Сумка 3" width="200" style="display: none;" onerror="this.style.display='none';">
+                    </div>
+                </div>
+                <div class="modal-section">
+                    <h4>Дополнительно</h4>
+                    <button class="modal-btn" data-modal="kombucha-essay">Эссе</button>
+                    <button class="modal-btn" data-modal="kombucha-description">Описание</button>
                 </div>
             `;
             modal.style.display = 'block';
         } else if (project === 'clay') {
             modalTitle.textContent = 'Уличный арт: Глиняные человечки';
             modalBody.innerHTML = `
-                <p>2025 — Глиняные фигурки, вдохновлённые дорожными знаками, рассказывающие о жизни после знаков.</p>
-                <button class="modal-btn" data-modal="clay-essay">Эссе</button>
-                <button class="modal-btn" data-modal="clay-description">Описание</button>
-                <div class="photo-gallery">
-                    <img src="yzma/potman.webp" alt="Человечек 1" width="200">
-                    <img src="yzma/streetman.webp" alt="Человечек 2" width="200">
+                <div class="modal-section">
+                    <h4>Описание</h4>
+                    <p>Июль 2025 — Глиняные фигурки, вдохновлённые дорожными знаками, рассказывающие о жизни после знаков.</p>
+                </div>
+                <div class="modal-section">
+                    <h4>Медиа</h4>
+                    <div class="photo-gallery">
+                        <img src="images/potman.webp" alt="Человечек 1" width="200" onerror="this.style.display='none';">
+                        <img src="images/streetman.webp" alt="Человечек 2" width="200" onerror="this.style.display='none';">
+                    </div>
+                </div>
+                <div class="modal-section">
+                    <h4>Дополнительно</h4>
+                    <button class="modal-btn" data-modal="clay-essay">Эссе</button>
+                    <button class="modal-btn" data-modal="clay-description">Описание</button>
                 </div>
             `;
             modal.style.display = 'block';
         } else if (project === 'rajm-essay') {
             modalTitle.textContent = 'Эссе: Rajm';
-            modalText.innerHTML = `
-                The rajm project was conceived in April 2025 and is based on data from UN Women and UNODC (2023). According to this data, approximately 85,000 cases of femicide are recorded each year, 60% of which are committed by intimate partners or family members. These numbers may seem dry and depersonalized — but for me, they became deeply personal. I spent a long time searching for a way to express an experience that is nearly impossible to articulate.<br><br>
-                Femicide is not an abstract concept. It is a reality that exists alongside us, regardless of time. We see the bodies, the tools, we hear the motives — these things help us make sense of what happened. But what is it that provokes the inevitable reaction? Smell. It fills the space within minutes. A person cannot live without air for more than three minutes — breath is inevitable. Hair, skin — everything absorbs scent. And no amount of washing will erase its trace. This was the sensation that sparked my research.<br><br>
-                I chose scent as a trigger for memory, guided by research on post-traumatic stress disorder (PTSD). According to the American Psychological Association (APA, 2022), around 70% of people with PTSD experience flashbacks when exposed to trauma-related smells. My grandmother once said: “The smell of a burned body — you never forget it. You’ll recognize it forever.”<br><br>
-                To create the fragrance, I used only essential oils: vetiver, patchouli, geranium, sandalwood, cedarwood, and rose. This composition recreates the scent of a blood-soaked, rain-drenched stone. Vetiver and patchouli form the earthy base, evoking the texture of wet stone. Geranium and rose introduce metallic notes reminiscent of blood. Sandalwood and cedarwood anchor the scent, reinforcing its permanence. I arrived at this formula through chemistry and testing — in search of that one precise olfactory response.<br><br>
-                In Marcel Proust’s In Search of Lost Time, the scent of a madeleine soaked in tea transports the narrator back to childhood — a trigger of nostalgia. But what if scent were used to create an entirely different experience? The scent of rajm, diffused through vials filled with a synthesized blend of oils, draws the visitor into the "after" — into a moment of loss, where emptiness, finality, and inevitability converge.<br><br>
-                In Ancient Egypt (ca. 1500 BCE), myrrh and frankincense were used to preserve the memory of the pharaohs — a guide into the afterlife. The pharaoh died enveloped in the scent of divinity, of power. But femicide does not care how you smell. Femicide leaves that scent behind — as memory, as evidence — for all who were there, for all who participated, for all who witnessed. In rajm, the aromatic vials become not a bridge to the divine or to solace, but a reminder of death. Inhalation becomes an encounter with trauma.<br><br>
-                Henri Bergson, in Matter and Memory, describes smell as a way for the past to exist in the present. Within the project, the viewer wears a cotton band soaked in glycerin — it captures both the viewer’s scent and the scent of the space around them. The project disrupts linear time. It imposes memory. It offers no choice to leave or reject the experience. One breath is all that separates now from then.<br><br>
-                During the ritual, the viewer ties the cotton band, sprays the scent, and later hangs the band on a nail. This action is not meant to soothe or comfort. It is an unconscious immersion in loss — though it can also become conscious. The result is the same: the scent will remain.<br><br>
-                The term rajm in Islamic law (fiqh, al-Bukhari) refers to stoning — a form of execution. Unlike animal killings, which occur for survival, human violence is unique: we can inflict pain for its own sake. And so the question arises — what does it mean, now, to be more human? The question "Which species stones its own?" — the answer may be: only humans. It is we who leave behind the scent of violence.<br><br>
-                Historian William Montgomery Watt (1961) noted that such stonings were rare (1–2%), but their public nature turned violence into spectacle. It was not just the person being executed who became the victim — the audience did too.<br><br>
-                rajm explores the aftermath of violence: emptiness, hopelessness, the strange relief of the end. All of these elements are woven into a singular experience. The madeleine of Proust becomes the scent of loss. The Egyptian tradition becomes a journey into void. Bergson’s flowing memory is broken by the band, forcing remembrance of what we would rather turn away from. rajm is a direct encounter with loss. It is a place where the viewer is left with a scent that cannot be washed away. An acceptance of what smells like death. A project that renders violence tangible — through breath.
+            modalBody.innerHTML = `
+                <p>The rajm project was conceived in April 2025 and is based on data from UN Women and UNODC (2023). According to this data, approximately 85,000 cases of femicide are recorded each year, 60% of which are committed by intimate partners or family members. These numbers may seem dry and depersonalized — but for me, they became deeply personal. I spent a long time searching for a way to express an experience that is nearly impossible to articulate.</p>
+                <p>Femicide is not an abstract concept. It is a reality that exists alongside us, regardless of time. We see the bodies, the tools, we hear the motives — these things help us make sense of what happened. But what is it that provokes the inevitable reaction? Smell. It fills the space within minutes. A person cannot live without air for more than three minutes — breath is inevitable. Hair, skin — everything absorbs scent. And no amount of washing will erase its trace. This was the sensation that sparked my research.</p>
             `;
             modal.style.display = 'block';
         } else if (project === 'rajm-description') {
@@ -171,7 +213,7 @@ document.addEventListener('DOMContentLoaded', () => {
             modal.style.display = 'block';
         } else if (project === 'kombucha-description') {
             modalTitle.textContent = 'Описание: Сумки из чайного гриба';
-            modalBody.innerHTML = 'Описание будет добавлено позже.';
+            modalBody.innerHTML = 'Описание будет добавлен позже.';
             modal.style.display = 'block';
         } else if (project === 'clay-essay') {
             modalTitle.textContent = 'Эссе: Уличный арт: Глиняные человечки';
@@ -228,5 +270,16 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('a, button, .timeline-item').forEach(el => {
         el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
         el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+    });
+
+    // Параллакс-эффект
+    const parallaxElements = document.querySelectorAll('.timeline-item');
+    window.addEventListener('scroll', () => {
+        const scrollPosition = window.pageYOffset;
+        parallaxElements.forEach(el => {
+            const speed = 0.2;
+            el.style.transform = `translateY(${scrollPosition * speed}px)`;
+        });
+        canvas.style.transform = `translateY(${scrollPosition * 0.1}px)`;
     });
 });
