@@ -46,14 +46,15 @@ nav a {
     position: relative;
     width: 100%;
     overflow-x: auto;
-    padding: 50px 0;
+    padding: 0;
+    height: 100vh; /* Занимает всю высоту окна */
 }
 
 .timeline-container {
     position: relative;
     display: flex;
     min-width: 2000px;
-    height: 200px;
+    height: 100%; /* Растягивается на всю высоту таймлайна */
     align-items: center;
     justify-content: flex-start;
 }
@@ -174,7 +175,7 @@ nav a {
 @media (max-width: 768px) {
     .timeline {
         overflow-x: hidden;
-        padding: 20px 0;
+        height: auto; /* Адаптивная высота на мобильных */
     }
 
     .timeline-container {
