@@ -1,215 +1,54 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const navLinks = document.querySelectorAll('nav a');
-    navLinks.forEach(link => {
-        link.addEventListener('click', (e) => {
-            e.preventDefault();
-            const targetId = link.getAttribute('href');
-            document.querySelector(targetId).scrollIntoView({ behavior: 'smooth' });
-        });
-    });
-
-    const modal = document.getElementById('modal');
-    const modalTitle = document.getElementById('modal-title');
-    const modalBody = document.getElementById('modal-body');
-
-    function showModal(project) {
-        modalTitle.textContent = '';
-        modalBody.innerHTML = '';
-
-        if (project === 'chutkost') {
-            modalTitle.textContent = 'Чуткость';
-            modalBody.innerHTML = `
-                <div class="modal-section">
-                    <h4>Описание</h4>
-                    <p>Сентябрь 2023 — Медиа-инсталляция с интерактивной шкатулкой из кокосового воска. Совместно с Ириной Даниличевой, Александрой Далибах и Яной Сорокиной. <a href="https://art-and-science-center.timepad.ru/event/2592578/" target="_blank">Подробнее</a>.</p>
-                </div>
-                <div class="modal-section">
-                    <h4>Медиа</h4>
-                    <video controls width="400">
-                        <source src="sensetivy.mp4" type="video/mp4">
-                        Ваш браузер не поддерживает видео.
-                    </video>
-                </div>
-            `;
-            modal.style.display = 'block';
-        } else if (project === 'serbian-dogbook') {
-            modalTitle.textContent = 'Сербско-русский собачник';
-            modalBody.innerHTML = `
-                <div class="modal-section">
-                    <h4>Описание</h4>
-                    <p>Март 2024 — Зин формата А6 (6 страниц) с иллюстрациями, посвящённый общению с собачниками на сербском языке. <a href="serbian-dogbook.pdf" type="application/pdf" target="_blank">PDF</a>.</p>
-                </div>
-                <div class="modal-section">
-                    <h4>Медиа</h4>
-                    <img src="oggy.png" alt="Собачник" width="400" onerror="this.style.display='none'; this.parentElement.style.display='none';">
-                </div>
-            `;
-            modal.style.display = 'block';
-        } else if (project === 'sestra') {
-            modalTitle.textContent = 'Сестра';
-            modalBody.innerHTML = `
-                <div class="modal-section">
-                    <h4>Описание</h4>
-                    <p>Сентябрь 2024 — ИИ-бот для поддержки жертв гендерного насилия в Telegram. <a href="https://t.me/svudabot" target="_blank">Бот Горгона</a>.</p>
-                </div>
-                <div class="modal-section">
-                    <h4>Медиа</h4>
-                    <img src="gorgona.png" alt="Сестра" width="400" onerror="this.style.display='none'; this.parentElement.style.display='none';">
-                </div>
-            `;
-            modal.style.display = 'block';
-        } else if (project === 'quantportraits') {
-            modalTitle.textContent = 'Квантовые портреты';
-            modalBody.innerHTML = `
-                <div class="modal-section">
-                    <h4>Описание</h4>
-                    <p>Май 2025 — Интерактивный art&science проект, где пиксели интерпретируются как квантовые объекты. <a href="https://quantportrait.netlify.app/" target="_blank">Посетить сайт</a>.</p>
-                </div>
-                <div class="modal-section">
-                    <h4>Медиа</h4>
-                    <img src="quantportret.png" alt="Квантовые портреты" width="400" onerror="this.style.display='none'; this.parentElement.style.display='none';">
-                </div>
-            `;
-            modal.style.display = 'block';
-        } else if (project === 'rajm') {
-            modalTitle.textContent = 'Rajm';
-            modalBody.innerHTML = `
-                <div class="modal-section">
-                    <h4>Описание</h4>
-                    <p>Июнь 2025 — Проект о травме через аромат, вдохновлённый данными о фемициде.</p>
-                </div>
-                <div class="modal-section">
-                    <h4>Медиа</h4>
-                    <div class="photo-gallery">
-                        <img src="Rajm.png" alt="Скульптура" width="200" onerror="this.style.display='none'; this.parentElement.style.display='none';">
-                    </div>
-                </div>
-                <div class="modal-section">
-                    <h4>Дополнительно</h4>
-                    <button class="modal-btn" data-modal="rajm-essay">Эссе</button>
-                    <button class="modal-btn" data-modal="rajm-description">Описание</button>
-                </div>
-            `;
-            modal.style.display = 'block';
-        } else if (project === 'kombucha') {
-            modalTitle.textContent = 'Сумки из чайного гриба';
-            modalBody.innerHTML = `
-                <div class="modal-section">
-                    <h4>Описание</h4>
-                    <p>Июль 2025 — Экологичный проект в разработке, исследующий эстетический потенциал био-материалов.</p>
-                </div>
-                <div class="modal-section">
-                    <h4>Медиа</h4>
-                    <div class="photo-gallery">
-                        <img src="teabag.png" alt="Сумка 1" width="200" style="display: none;" onerror="this.style.display='none'; this.parentElement.style.display='none';">
-                    </div>
-                </div>
-                <div class="modal-section">
-                    <h4>Дополнительно</h4>
-                    <button class="modal-btn" data-modal="kombucha-essay">Эссе</button>
-                    <button class="modal-btn" data-modal="kombucha-description">Описание</button>
-                </div>
-            `;
-            modal.style.display = 'block';
-        } else if (project === 'clay') {
-            modalTitle.textContent = 'Уличный арт: Глиняные человечки';
-            modalBody.innerHTML = `
-                <div class="modal-section">
-                    <h4>Описание</h4>
-                    <p>Июль 2025 — Глиняные фигурки, вдохновлённые дорожными знаками.</p>
-                </div>
-                <div class="modal-section">
-                    <h4>Медиа</h4>
-                    <div class="photo-gallery">
-                        <img src="Clayperson.png" alt="Человечек 1" width="200" onerror="this.style.display='none'; this.parentElement.style.display='none';">
-                    </div>
-                </div>
-                <div class="modal-section">
-                    <h4>Дополнительно</h4>
-                    <button class="modal-btn" data-modal="clay-essay">Эссе</button>
-                    <button class="modal-btn" data-modal="clay-description">Описание</button>
-                </div>
-            `;
-            modal.style.display = 'block';
-        } else if (project === 'rajm-essay') {
-            modalTitle.textContent = 'Эссе: Rajm';
-            modalBody.innerHTML = `
-                <p>The rajm project was conceived in April 2025 and is based on data from UN Women and UNODC (2023). According to this data, approximately 85,000 cases of femicide are recorded each year, 60% of which are committed by intimate partners or family members. These numbers may seem dry and depersonalized — but for me, they became deeply personal. I spent a long time searching for a way to express an experience that is nearly impossible to articulate.</p>
-                <p>Femicide is not an abstract concept. It is a reality that exists alongside us, regardless of time. We see the bodies, the tools, we hear the motives — these things help us make sense of what happened. But what is it that provokes the inevitable reaction? Smell. It fills the space within minutes. A person cannot live without air for more than three minutes — breath is inevitable. Hair, skin — everything absorbs scent. And no amount of washing will erase its trace. This was the sensation that sparked my research.</p>
-            `;
-            modal.style.display = 'block';
-        } else if (project === 'rajm-description') {
-            modalTitle.textContent = 'Описание: Rajm';
-            modalBody.innerHTML = `
-                <p>Concept — The project “rajm” began in April 2025, inspired by UN Women and UNODC data (2023), recording 85,000 annual femicide cases. Of these, 51,100 (60%) were by intimate partners or family. This personal resonance drove me to express the inexpressible.</p>
-                <p>Scent as Trigger — Using vetiver, patchouli, geranium, sandalwood, cedarwood, and rose, I crafted a fragrance evoking blood-soaked stone, tested with synthetic molecules like geosmin.</p>
-                <p>Installation — A 50 m² space with dim lighting, featuring scent vials, cotton bands, and a nail wall for visitor interaction.</p>
-            `;
-            modal.style.display = 'block';
-        } else if (project === 'kombucha-essay') {
-            modalTitle.textContent = 'Эссе: Сумки из чайного гриба';
-            modalBody.innerHTML = 'Текст эссе будет добавлен позже.';
-            modal.style.display = 'block';
-        } else if (project === 'kombucha-description') {
-            modalTitle.textContent = 'Описание: Сумки из чайного гриба';
-            modalBody.innerHTML = 'Описание будет добавлено позже.';
-            modal.style.display = 'block';
-        } else if (project === 'clay-essay') {
-            modalTitle.textContent = 'Эссе: Уличный арт: Глиняные человечки';
-            modalBody.innerHTML = 'Текст эссе будет добавлен позже.';
-            modal.style.display = 'block';
-        } else if (project === 'clay-description') {
-            modalTitle.textContent = 'Описание: Уличный арт: Глиняные человечки';
-            modalBody.innerHTML = 'Описание будет добавлено позже.';
-            modal.style.display = 'block';
-        }
-
-        modal.style.display = 'block';
-    }
-
-    const timelineItems = document.querySelectorAll('.timeline-item');
-    timelineItems.forEach(item => {
-        item.addEventListener('click', () => {
-            const project = item.getAttribute('data-modal');
-            showModal(project);
-        });
-    });
-
-    const modalButtons = document.querySelectorAll('.modal-btn');
-    modalButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            const project = button.getAttribute('data-modal');
-            showModal(project);
-        });
-    });
-
-    const closeButton = document.querySelector('.close');
-    if (closeButton) {
-        closeButton.addEventListener('click', closeModal);
-    }
-
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            closeModal();
-        }
-    };
-
-    // Анимация при скроллинге
-    const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                observer.unobserve(entry.target);
+    // Открытие модального окна
+    document.querySelectorAll('.process-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const modalId = btn.getAttribute('data-modal');
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.style.display = 'block';
             }
         });
-    }, { threshold: 0.5 });
-
-    timelineItems.forEach(item => {
-        observer.observe(item);
     });
 
-    function closeModal() {
-        const modal = document.getElementById('modal');
+    // Закрытие модального окна
+    document.querySelectorAll('.close').forEach(closeBtn => {
+        closeBtn.addEventListener('click', () => {
+            const modal = closeBtn.closest('.modal');
+            if (modal) {
+                modal.style.display = 'none';
+            }
+        });
+    });
+
+    // Закрытие по клику вне модального окна
+    window.addEventListener('click', (event) => {
+        document.querySelectorAll('.modal').forEach(modal => {
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+    });
+
+    // Анимация появления при скроллинге
+    function checkVisibility() {
+        const timelineItems = document.querySelectorAll('.timeline-item');
+        const windowHeight = window.innerHeight;
+
+        timelineItems.forEach(item => {
+            const itemTop = item.getBoundingClientRect().top;
+            if (itemTop < windowHeight - 100) {
+                item.classList.add('visible');
+            }
+        });
+    }
+
+    window.addEventListener('scroll', checkVisibility);
+    window.addEventListener('load', checkVisibility);
+});
+
+function closeModal(modalId) {
+    const modal = document.getElementById(modalId);
+    if (modal) {
         modal.style.display = 'none';
     }
-});
+}
