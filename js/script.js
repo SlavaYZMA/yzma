@@ -123,7 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
                 <div class="modal-section">
                     <h4>Медиа</h4>
-                    <img src="quantportrait.jpg" alt="Квантовые портреты" width="400" onerror="this.style.display='none'; this.parentElement.style.display='none';">
+                    <img src="yzma/quantportret.png" alt="Квантовые портреты" width="400" id="modal-quantportret-img" onerror="this.src='yzmaport/quantportret.png'; this.onerror=null;">
                 </div>
             `;
             modal.style.display = 'block';
