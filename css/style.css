@@ -77,12 +77,20 @@ nav a:hover {
 
 .work-item, .timeline-item {
     background: rgba(255, 255, 255, 0.1);
-    height: 250px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    padding: 20px;
     border-radius: 10px;
     transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.work-item h3 {
+    margin: 0;
+    font-size: 1.2em;
+}
+
+.work-item p {
+    margin: 10px 0 0;
+    font-size: 0.9em;
+    color: #ccc;
 }
 
 .work-item:hover, .timeline-item:hover {
