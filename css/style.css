@@ -42,51 +42,56 @@ nav a {
 
 .timeline {
     position: relative;
-    overflow: hidden;
+    overflow-x: auto;
+    padding-bottom: 50px;
 }
 
 .timeline-container {
     position: relative;
+    white-space: nowrap;
     padding: 20px 0;
 }
 
 .timeline-line {
     position: absolute;
-    top: 0;
-    left: 50%;
-    width: 2px;
-    height: 100%;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 2px;
     background: #fff;
-    transform: translateX(-50%);
+    transform: translateY(-50%);
 }
 
 .timeline-items {
-    display: flex;
-    flex-direction: column;
+    position: relative;
+    display: inline-flex;
     align-items: center;
+    height: 200px;
 }
 
 .timeline-item {
-    width: 40%;
+    position: absolute;
+    width: 150px;
     background: #333;
-    padding: 20px;
-    margin: 20px 0;
+    padding: 15px;
+    margin: 0 10px;
     border-radius: 10px;
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    position: relative;
-    z-index: 1;
+    text-align: center;
+    transform: translateY(-50%);
 }
 
 .timeline-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+    transform: translateY(-60px) scale(1.1);
+    box-shadow: 0 10px 20px rgba(255, 255, 255, 0.2);
 }
 
 .timeline-thumb {
     width: 100%;
     height: auto;
     border-radius: 5px;
+    margin-top: 10px;
 }
 
 .modal {
@@ -169,11 +174,25 @@ nav a {
 }
 
 @media (max-width: 768px) {
+    .timeline-items {
+        flex-direction: column;
+        height: auto;
+    }
     .timeline-item {
+        position: relative;
         width: 80%;
+        margin: 20px 0;
+        left: auto;
+        transform: none;
+    }
+    .timeline-item:hover {
+        transform: translateY(-10px) scale(1.1);
     }
     .timeline-line {
+        top: 0;
         left: 20px;
+        width: 2px;
+        height: 100%;
         transform: none;
     }
 }
