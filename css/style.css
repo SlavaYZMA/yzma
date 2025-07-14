@@ -3,7 +3,7 @@ body {
     font-family: Arial, sans-serif;
     background: #1a1a1a;
     color: #fff;
-    overflow-x: auto; /* Разрешаем горизонтальную прокрутку */
+    overflow-x: auto;
 }
 
 canvas {
@@ -49,9 +49,10 @@ nav a {
 .timeline-container {
     position: relative;
     white-space: nowrap;
-    min-width: 100%; /* Адаптивная ширина */
+    min-width: 100%;
     padding: 20px 0;
-    box-sizing: border-box; /* Учитываем padding */
+    box-sizing: border-box;
+    display: inline-block; /* Гибкое поведение */
 }
 
 .timeline-line {
@@ -92,7 +93,7 @@ nav a {
     position: relative;
     display: inline-flex;
     align-items: center;
-    height: 250px; /* Достаточная высота для текста */
+    height: 250px;
 }
 
 .timeline-item {
@@ -100,7 +101,7 @@ nav a {
     width: 150px;
     background: #333;
     padding: 15px;
-    margin: 0 10px;
+    margin: 0 20px; /* Увеличим расстояние между блоками */
     border-radius: 10px;
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -208,7 +209,7 @@ nav a {
 
 @media (max-width: 768px) {
     .timeline-container {
-        width: 100%; /* Полная ширина на мобильных */
+        width: 100%;
     }
     .timeline-items {
         flex-direction: column;
@@ -232,6 +233,6 @@ nav a {
         transform: none;
     }
     .timeline-dots {
-        display: none; /* Скрываем точки на мобильных */
+        display: none;
     }
 }
