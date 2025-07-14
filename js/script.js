@@ -1,59 +1,3 @@
-const canvas = document.getElementById('background-canvas');
-const ctx = canvas.getContext('2d');
-
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-
-const particles = [];
-const particleCount = 50;
-
-class Particle {
-    constructor() {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
-        this.size = Math.random() * 2 + 1;
-        this.speedX = Math.random() * 1 - 0.5;
-        this.speedY = Math.random() * 1 - 0.5;
-    }
-    update() {
-        this.x += this.speedX;
-        this.y += this.speedY;
-        if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
-        if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
-    }
-    draw() {
-        ctx.fillStyle = 'rgba(255, 255, 255, 0.5)';
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fill();
-    }
-}
-
-for (let i = 0; i < particleCount; i++) {
-    particles.push(new Particle());
-}
-
-function animate() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    for (let particle of particles) {
-        particle.update();
-        particle.draw();
-    }
-    requestAnimationFrame(animate);
-}
-
-animate();
-
-window.addEventListener('resize', () => {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-});
-
-function closeModal() {
-    const modal = document.getElementById('modal');
-    modal.style.display = 'none';
-}
-
 document.addEventListener('DOMContentLoaded', () => {
     const navLinks = document.querySelectorAll('nav a');
     navLinks.forEach(link => {
@@ -218,14 +162,12 @@ document.addEventListener('DOMContentLoaded', () => {
             modalTitle.textContent = 'Описание: Уличный арт: Глиняные человечки';
             modalBody.innerHTML = 'Описание будет добавлено позже.';
             modal.style.display = 'block';
-        } else if (project === 'essay') {
-            modalTitle.textContent = 'Моё эссе';
-            modalBody.innerHTML = '';
-            modal.style.display = 'block';
         }
+
+        modal.style.display = 'block';
     }
 
-    const timelineItems = document.querySelectorAll('.timeline-item, .timeline-dot');
+    const timelineItems = document.querySelectorAll('.timeline-item');
     timelineItems.forEach(item => {
         item.addEventListener('click', () => {
             const project = item.getAttribute('data-modal');
@@ -252,29 +194,22 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // Кастомный курсор
-    const cursor = document.createElement('div');
-    cursor.className = 'custom-cursor';
-    document.body.appendChild(cursor);
-
-    document.addEventListener('mousemove', (e) => {
-        cursor.style.left = e.pageX + 'px';
-        cursor.style.top = e.pageY + 'px';
-    });
-
-    document.querySelectorAll('a, button, .timeline-item, .timeline-dot').forEach(el => {
-        el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
-        el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
-    });
-
-    // Параллакс-эффект
-    const parallaxElements = document.querySelectorAll('.timeline-item');
-    window.addEventListener('scroll', () => {
-        const scrollPosition = window.pageYOffset;
-        parallaxElements.forEach(el => {
-            const speed = 0.2;
-            el.style.transform = `translateX(${scrollPosition * speed * -0.1}px)`;
+    // Анимация при скроллинге
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
         });
-        canvas.style.transform = `translateY(${scrollPosition * 0.1}px)`;
+    }, { threshold: 0.5 });
+
+    timelineItems.forEach(item => {
+        observer.observe(item);
     });
+
+    function closeModal() {
+        const modal = document.getElementById('modal');
+        modal.style.display = 'none';
+    }
 });
