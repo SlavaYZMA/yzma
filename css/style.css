@@ -84,7 +84,7 @@ nav a {
     height: 100%;
     align-items: flex-start;
     justify-content: flex-start;
-    margin-left: 200px; /* Увеличенный отступ, чтобы линии не заходили на название и легенду */
+    margin-left: 50%; /* Отодвигаем начало на 50% ширины */
 }
 
 .timeline-grid-line {
@@ -115,7 +115,7 @@ nav a {
     padding: 15px;
     border-radius: 10px;
     text-align: left;
-    width: 180px;
+    width: 10.46%; /* Ширина как два промежутка (2 * 5.23%) */
 }
 
 .completed .timeline-content {
@@ -145,7 +145,7 @@ nav a {
 }
 
 .timeline-thumb {
-    width: 180px;
+    width: 100%; /* Занимает всю ширину контейнера */
     aspect-ratio: 3 / 2;
     object-fit: cover;
     margin-bottom: 10px;
@@ -246,7 +246,7 @@ nav a {
     }
 
     .timeline-content {
-        width: auto;
+        width: auto; /* Адаптивная ширина на мобильных */
     }
 
     .timeline-content h3 {
@@ -258,7 +258,7 @@ nav a {
     }
 
     .timeline-thumb {
-        width: 120px;
+        width: 100%;
         margin-right: 15px;
     }
 
