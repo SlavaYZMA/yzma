@@ -3,7 +3,7 @@ body {
     font-family: Arial, sans-serif;
     background: #1a1a1a;
     color: #fff;
-    overflow-x: hidden;
+    overflow-x: auto; /* Разрешаем горизонтальную прокрутку */
 }
 
 canvas {
@@ -49,8 +49,9 @@ nav a {
 .timeline-container {
     position: relative;
     white-space: nowrap;
-    width: 2000px; /* Фиксированная ширина для горизонтальной прокрутки */
+    min-width: 100%; /* Адаптивная ширина */
     padding: 20px 0;
+    box-sizing: border-box; /* Учитываем padding */
 }
 
 .timeline-line {
@@ -91,7 +92,7 @@ nav a {
     position: relative;
     display: inline-flex;
     align-items: center;
-    height: 250px; /* Увеличим высоту для текста */
+    height: 250px; /* Достаточная высота для текста */
 }
 
 .timeline-item {
@@ -207,7 +208,7 @@ nav a {
 
 @media (max-width: 768px) {
     .timeline-container {
-        width: 1000px; /* Уменьшаем ширину для мобильных */
+        width: 100%; /* Полная ширина на мобильных */
     }
     .timeline-items {
         flex-direction: column;
