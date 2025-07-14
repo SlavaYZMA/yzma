@@ -131,17 +131,16 @@ video {
 
 .modal-content {
     background: #1a1a1a;
-    margin: 5% auto; /* Уменьшаем отступ сверху и снизу */
+    margin: 5% auto;
     padding: 20px;
     border-radius: 10px;
     width: 70%;
     max-width: 600px;
-    min-height: 20vh; /* Минимальная высота для видимости */
-    max-height: 90vh; /* Ограничение высоты на 90% экрана */
     overflow-y: auto; /* Прокрутка по вертикали */
     color: #fff;
     position: relative;
     box-sizing: border-box; /* Учитываем padding в высоте */
+    max-height: calc(90vh - 10%); /* Адаптивная высота с учетом отступов */
 }
 
 .close {
