@@ -48,11 +48,9 @@ nav a {
 
 .timeline-container {
     position: relative;
-    white-space: nowrap;
-    min-width: 1200px; /* Увеличим для десктопов */
+    min-width: 1500px; /* Увеличим для десктопов */
     padding: 20px 0;
     box-sizing: border-box;
-    display: inline-block;
 }
 
 .timeline-line {
@@ -91,22 +89,21 @@ nav a {
 
 .timeline-items {
     position: relative;
-    display: inline-flex;
+    display: flex;
     align-items: center;
-    height: 300px; /* Увеличим для полной видимости */
+    height: 300px;
+    justify-content: space-between; /* Равномерное распределение */
+    gap: 50px; /* Фиксированное расстояние между блоками */
 }
 
 .timeline-item {
-    position: absolute;
     width: 150px;
     background: #333;
     padding: 15px;
-    margin: 0 30px; /* Увеличим расстояние между блоками */
     border-radius: 10px;
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     text-align: center;
-    transform: translateY(-50%);
 }
 
 .timeline-item:hover {
@@ -216,11 +213,8 @@ nav a {
         height: auto;
     }
     .timeline-item {
-        position: relative;
         width: 80%;
         margin: 20px 0;
-        left: auto;
-        transform: none;
     }
     .timeline-item:hover {
         transform: translateY(-10px) scale(1.1);
