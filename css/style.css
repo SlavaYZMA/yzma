@@ -1,109 +1,66 @@
 body {
     margin: 0;
     padding: 0;
-    background: #0a0a0a;
-    color: #e0e0e0;
     font-family: 'Arial', sans-serif;
-    overflow-x: hidden;
+    background: #f5f5f5;
+    color: #222;
     line-height: 1.6;
 }
 
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
 header {
+    background: #222;
+    color: #fff;
     text-align: center;
     padding: 20px 0;
-    border-bottom: 1px solid #333;
+    position: sticky;
+    top: 0;
 }
 
 header h1 {
-    font-size: 2.5em;
     margin: 0;
+    font-size: 2em;
+}
+
+nav a {
     color: #fff;
-    text-transform: uppercase;
-    letter-spacing: 2px;
+    margin: 0 15px;
+    text-decoration: none;
+    font-size: 1.1em;
 }
 
-header p {
-    font-size: 1em;
-    color: #aaa;
+nav a:hover {
+    color: #ddd;
 }
 
-main {
-    padding: 40px 0;
+.section {
+    padding: 50px 20px;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
-.step {
-    display: none;
-    text-align: center;
-    opacity: 0;
-    transition: opacity 0.5s ease;
-}
-
-.step.active {
-    display: block;
-    opacity: 1;
-}
-
-.text-block {
-    font-size: 1.2em;
+.section h2 {
+    font-size: 2em;
     margin-bottom: 20px;
-    padding: 15px;
-    background: rgba(255, 255, 255, 0.05);
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.work-item {
+    background: #ddd;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 8px;
-}
-
-button {
-    background: #1a1a1a;
-    color: #e0e0e0;
-    border: 1px solid #444;
-    padding: 10px 20px;
-    margin: 5px;
-    cursor: pointer;
-    border-radius: 4px;
-    transition: all 0.3s ease;
-}
-
-button:hover {
-    background: #333;
-    transform: translateY(-2px);
-}
-
-input[type="file"] {
-    display: none;
-}
-
-#uploadImage + button {
-    background: #2a2a2a;
-}
-
-#uploadImage + button:hover {
-    background: #444;
-}
-
-#portrait-container {
-    width: 600px;
-    height: 600px;
-    margin: 20px auto;
-    background: #111;
-    border-radius: 10px;
-    overflow: hidden;
 }
 
 footer {
     text-align: center;
-    padding: 20px 0;
-    border-top: 1px solid #333;
-}
-
-#about {
-    background: #2a2a2a;
-}
-
-#about:hover {
-    background: #444;
+    padding: 20px;
+    background: #222;
+    color: #fff;
 }
