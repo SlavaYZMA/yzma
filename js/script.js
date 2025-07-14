@@ -150,6 +150,14 @@ document.addEventListener('DOMContentLoaded', () => {
             modalTitle.textContent = 'Описание проекта: Сумки из чайного гриба';
             modalText.innerHTML = 'Описание проекта будет добавлено позже, когда работа над ним завершится.';
             modal.style.display = 'block';
+        } else if (project === 'clay-essay') {
+            modalTitle.textContent = 'Эссе: Уличный арт: Глиняные человечки';
+            modalText.innerHTML = 'Текст эссе будет добавлен позже, когда проект будет готов.';
+            modal.style.display = 'block';
+        } else if (project === 'clay-description') {
+            modalTitle.textContent = 'Описание проекта: Уличный арт: Глиняные человечки';
+            modalText.innerHTML = 'Описание проекта будет добавлено позже, когда работа над ним завершится.';
+            modal.style.display = 'block';
         }
     }
 
