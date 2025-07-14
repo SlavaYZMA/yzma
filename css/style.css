@@ -55,13 +55,23 @@ body {
     margin-top: 0;
 }
 
+.timeline-container {
+    position: relative;
+    display: flex;
+    min-width: 2500px;
+    height: 100%;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin-left: 0; /* Убираем отступ, так как легенда внутри */
+}
+
 .timeline-legend {
     padding-left: 20px;
-    display: flex;
+    display: inline-flex;
     flex-direction: column;
     gap: 10px;
-    margin-top: 0; /* Выравниваем по верхней границе таймлайна */
-    position: relative; /* Убираем абсолютное позиционирование */
+    margin-top: 0; /* Выравниваем по верхней границе */
+    margin-right: 20px; /* Отступ перед линиями */
 }
 
 .legend-item {
@@ -75,16 +85,6 @@ body {
     height: 15px;
     margin-right: 5px;
     display: inline-block;
-}
-
-.timeline-container {
-    position: relative;
-    display: flex;
-    min-width: 2500px;
-    height: 100%;
-    align-items: flex-start;
-    justify-content: flex-start;
-    margin-left: 30%; /* Уменьшенное расстояние */
 }
 
 .timeline-grid-line {
@@ -117,6 +117,7 @@ body {
     text-align: left;
     width: 10.46%; /* Два промежутка (2 * 5.23%) */
     box-sizing: border-box; /* Учитываем padding в ширине */
+    position: relative; /* Убеждаемся, что ширина учитывает позиционирование */
 }
 
 .completed .timeline-content {
@@ -339,7 +340,7 @@ body {
 
     .timeline-legend {
         padding-left: 10px;
-        top: 0;
+        display: block; /* Для мобильных */
     }
 
     .process-buttons {
