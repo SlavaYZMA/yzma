@@ -90,7 +90,7 @@ body {
 .timeline-container {
     position: relative;
     display: flex;
-    min-width: 4500px;
+    min-width: 2800px; /* Уменьшено с 4500px, чтобы соответствовать 60.145% */
     height: 100%;
     align-items: flex-start;
     justify-content: flex-start;
