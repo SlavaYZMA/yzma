@@ -1,9 +1,21 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Открытие модального окна
+    // Открытие модального окна для кнопок process-btn
     document.querySelectorAll('.process-btn').forEach(btn => {
         btn.addEventListener('click', (event) => {
             event.preventDefault(); // Предотвращаем прокрутку
             const modalId = btn.getAttribute('data-modal');
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.style.display = 'block';
+                document.body.style.overflow = 'hidden'; // Блокируем прокрутку
+            }
+        });
+    });
+
+    // Открытие модального окна для элементов таймлайна
+    document.querySelectorAll('.timeline-item').forEach(item => {
+        item.addEventListener('click', () => {
+            const modalId = item.getAttribute('data-modal');
             const modal = document.getElementById(modalId);
             if (modal) {
                 modal.style.display = 'block';
