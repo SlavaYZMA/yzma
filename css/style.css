@@ -56,6 +56,14 @@ body {
     padding: 20px;
     box-sizing: border-box;
     z-index: 10;
+    background-color: #0E0E0E;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.timeline-legend-container.hidden {
+    opacity: 0;
+    pointer-events: none;
 }
 
 .timeline-legend {
@@ -80,7 +88,7 @@ body {
 .timeline {
     position: relative;
     width: 100%;
-    overflow-x: auto; /* Прокрутка осталась */
+    overflow-x: auto;
     padding-top: 160px;
     height: 100vh;
     margin-top: 0;
@@ -90,7 +98,7 @@ body {
 .timeline-container {
     position: relative;
     display: flex;
-    min-width: 1200px; /* Достаточная ширина для всех проектов и линий */
+    min-width: 1500px; /* Увеличено для новых расстояний и линий */
     height: 100%;
     align-items: flex-start;
     justify-content: flex-start;
