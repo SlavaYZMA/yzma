@@ -80,7 +80,7 @@ body {
 .timeline {
     position: relative;
     width: 100%;
-    overflow-x: auto;
+    overflow-x: hidden; /* Убрана лишняя прокрутка */
     padding-top: 160px;
     height: 100vh;
     margin-top: 0;
@@ -90,8 +90,8 @@ body {
 .timeline-container {
     position: relative;
     display: flex;
-    min-width: 51.42%; /* 47.07% (Teabag) + 2 линии по 2.175% */
-    max-width: 51.42%;
+    width: 100%; /* Полная ширина экрана */
+    max-width: 100%; /* Ограничение до 100% */
     height: 100%;
     align-items: flex-start;
     justify-content: flex-start;
@@ -107,7 +107,6 @@ body {
     border-left: 1px dashed rgba(246, 246, 246, 0.2);
 }
 
-/* Убрано свойство [data-date]:before, оставлено место для твоих дат */
 .timeline-grid-line:before {
     content: "";
     /* Здесь ты можешь добавить свои даты, например: content: attr(data-date); */
