@@ -125,7 +125,7 @@ body {
     padding: 15px;
     border-radius: 10px;
     text-align: left;
-    width: 10.46%; /* Точно два промежутка (2 * 5.23%) */
+    width: 10.46%; /* Два промежутка (2 * 5.23%) */
     box-sizing: border-box;
     position: relative;
     min-width: 10.46%; /* Гарантируем минимальную ширину */
