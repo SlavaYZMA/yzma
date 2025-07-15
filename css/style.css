@@ -52,9 +52,20 @@ body {
     position: relative;
     width: 100%;
     overflow-x: auto;
-    padding-top: 120px; /* Увеличен вертикальный отступ */
+    padding-top: 120px;
     height: 100vh;
     margin-top: 0;
+    box-sizing: border-box;
+    display: flex;
+}
+
+.timeline-legend {
+    padding-left: 20px;
+    display: inline-flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 0;
+    margin-right: 50px;
     box-sizing: border-box;
 }
 
@@ -65,17 +76,6 @@ body {
     height: 100%;
     align-items: flex-start;
     justify-content: flex-start;
-    margin-left: 200px; /* Горизонтальный отступ от легенды */
-    box-sizing: border-box;
-}
-
-.timeline-legend {
-    padding-left: 20px;
-    display: inline-flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-top: 0;
-    margin-right: 50px;
     box-sizing: border-box;
 }
 
@@ -133,7 +133,7 @@ body {
 }
 
 .completed .timeline-content {
-    background-color: #333333;
+    background-color: #1A1A1A; /* Обновлённый цвет для завершённых */
 }
 
 .upcoming .timeline-content {
