@@ -1,37 +1,23 @@
 document.addEventListener('DOMContentLoaded', () => {
     console.log('DOM загружен, начинаю настройку событий');
 
-    // Открытие модального окна для кнопок process-btn
-   document.querySelectorAll('.timeline-item').forEach(item => {
-        item.addEventListener('click', () => {
+    // Открытие модального окна для элементов таймлайна и кнопок процесса
+    document.querySelectorAll('.timeline-item, .process-btn').forEach(item => {
+        item.addEventListener('click', (e) => {
+            e.preventDefault(); // Предотвращаем переход по ссылке для .process-btn
             const modalId = item.getAttribute('data-modal');
             const modal = document.getElementById(modalId);
             if (modal) {
-                console.log(`Клик по .timeline-item, открываю ${modalId}`);
+                console.log(`Клик по ${item.className}, открываю ${modalId}`);
                 modal.style.display = 'block';
                 document.body.style.overflow = 'hidden';
             } else {
-                console.log(`Модальное окно ${modalId} не найдено для .timeline-item`);
+                console.log(`Модальное окно ${modalId} не найдено для ${item.className}`);
             }
         });
     });
 
-    // Открытие модального окна для элементов таймлайна
-    document.querySelectorAll('.timeline-item').forEach(item => {
-        item.addEventListener('click', () => {
-            const modalId = item.getAttribute('data-modal');
-            const modal = document.getElementById(modalId);
-            if (modal) {
-                console.log(`Клик по .timeline-item, открываю ${modalId}`);
-                modal.style.display = 'block';
-                document.body.style.overflow = 'hidden';
-            } else {
-                console.log(`Модальное окно ${modalId} не найдено для .timeline-item`);
-            }
-        });
-    });
-
-    // Закрытие модального окна
+    // Закрытие модального окна по клику на крестик
     document.querySelectorAll('.close').forEach(closeBtn => {
         closeBtn.addEventListener('click', () => {
             const modal = closeBtn.closest('.modal');
