@@ -52,7 +52,7 @@ body {
     position: relative;
     width: 100%;
     overflow-x: auto;
-    padding-top: 160px; /* Увеличен для избежания пересечения с заголовком */
+    padding-top: 160px;
     height: 100vh;
     margin-top: 0;
     box-sizing: border-box;
@@ -61,8 +61,8 @@ body {
 .timeline-legend-container {
     position: fixed;
     left: 20px;
-    top: 80px; /* Выше таймлайна */
-    width: 180px; /* Фиксированная ширина */
+    top: 160px; /* Выравнивание с началом таймлайна */
+    width: 180px;
     padding: 20px;
     box-sizing: border-box;
     z-index: 10;
@@ -94,7 +94,7 @@ body {
     height: 100%;
     align-items: flex-start;
     justify-content: flex-start;
-    margin-left: 200px; /* Отступ от легенды */
+    margin-left: 200px;
     box-sizing: border-box;
 }
 
