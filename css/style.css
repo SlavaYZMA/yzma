@@ -52,7 +52,7 @@ body {
     position: relative;
     width: 100%;
     overflow-x: auto;
-    padding-top: 80px;
+    padding-top: 120px; /* Увеличен вертикальный отступ */
     height: 100vh;
     margin-top: 0;
     box-sizing: border-box;
@@ -65,7 +65,7 @@ body {
     height: 100%;
     align-items: flex-start;
     justify-content: flex-start;
-    margin-left: 0;
+    margin-left: 200px; /* Горизонтальный отступ от легенды */
     box-sizing: border-box;
 }
 
@@ -125,8 +125,8 @@ body {
     padding: 15px;
     border-radius: 10px;
     text-align: left;
-    width: 255px; /* Уменьшено на 15% от 300px */
-    height: 255px; /* Уменьшено на 15% от 300px */
+    width: 255px;
+    height: 255px;
     box-sizing: border-box;
     position: relative;
     aspect-ratio: 1 / 1;
