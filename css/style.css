@@ -52,11 +52,39 @@ body {
     position: relative;
     width: 100%;
     overflow-x: auto;
-    padding-top: 80px;
+    padding-top: 160px; /* Увеличен для избежания пересечения с заголовком */
     height: 100vh;
     margin-top: 0;
-    padding-top: 130px; /* Вертикальный отступ от заголовка */
     box-sizing: border-box;
+}
+
+.timeline-legend-container {
+    position: fixed;
+    left: 20px;
+    top: 80px; /* Выше таймлайна */
+    width: 180px; /* Фиксированная ширина */
+    padding: 20px;
+    box-sizing: border-box;
+    z-index: 10;
+}
+
+.timeline-legend {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    font-size: 0.9em;
+}
+
+.legend-color {
+    width: 15px;
+    height: 15px;
+    margin-right: 5px;
+    display: inline-block;
 }
 
 .timeline-container {
@@ -66,36 +94,7 @@ body {
     height: 100%;
     align-items: flex-start;
     justify-content: flex-start;
-    margin-left: 0; /* Отступ убран, т.к. легенда вне контейнера */
-    box-sizing: border-box;
-}
-
-.timeline-legend {
-    position: absolute;
-    left: 20px; /* Отступ слева */
-    top: 130px; /* Выравнивание по верху таймлайна */
-    padding-left: 20px;
-    display: inline-flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-top: 0;
-    margin-right: 20px; /* Отступ от таймлайна */
-    box-sizing: border-box;
-    z-index: 10;
-}
-
-.legend-item {
-    display: flex;
-    align-items: center;
-    font-size: 0.9em;
-    box-sizing: border-box;
-}
-
-.legend-color {
-    width: 15px;
-    height: 15px;
-    margin-right: 5px;
-    display: inline-block;
+    margin-left: 200px; /* Отступ от легенды */
     box-sizing: border-box;
 }
 
@@ -105,7 +104,6 @@ body {
     bottom: 0;
     width: 1px;
     border-left: 1px dashed rgba(246, 246, 246, 0.2);
-    box-sizing: border-box;
 }
 
 .timeline-grid-line[data-date]:before {
@@ -116,14 +114,12 @@ body {
     transform: translateX(-50%);
     font-size: 0.9em;
     white-space: nowrap;
-    box-sizing: border-box;
 }
 
 .timeline-item {
     position: absolute;
     display: flex;
     align-items: center;
-    box-sizing: border-box;
 }
 
 .timeline-content {
@@ -156,13 +152,11 @@ body {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    box-sizing: border-box;
 }
 
 .timeline-content p {
     font-size: 14px;
     margin: 5px 0;
-    box-sizing: border-box;
 }
 
 .timeline-thumb {
@@ -171,14 +165,12 @@ body {
     object-fit: cover;
     margin-bottom: 10px;
     border-radius: 5px;
-    box-sizing: border-box;
 }
 
 .section {
     padding: 50px 20px;
     max-width: 1200px;
     margin: 0 auto;
-    box-sizing: border-box;
 }
 
 .process-buttons {
@@ -186,7 +178,6 @@ body {
     flex-wrap: wrap;
     gap: 20px;
     padding: 20px 0;
-    box-sizing: border-box;
 }
 
 .process-btn {
@@ -197,7 +188,6 @@ body {
     display: inline-block;
     transition: transform 0.3s, background-color 0.3s;
     cursor: pointer;
-    box-sizing: border-box;
 }
 
 .process-btn:hover {
@@ -236,7 +226,6 @@ body {
     background: rgba(0, 0, 0, 0.8);
     z-index: 1000;
     animation: fadeIn 0.3s ease;
-    box-sizing: border-box;
 }
 
 .modal-content {
@@ -253,23 +242,19 @@ body {
     overflow-y: auto;
     animation: slideIn 0.3s ease;
     color: #F6F6F6;
-    box-sizing: border-box;
 }
 
 .modal-body {
     margin-top: 20px;
-    box-sizing: border-box;
 }
 
 .modal-section {
     margin-bottom: 20px;
-    box-sizing: border-box;
 }
 
 .modal-section h4 {
     margin: 0 0 10px;
     color: #F6F6F6;
-    box-sizing: border-box;
 }
 
 .close {
@@ -279,59 +264,56 @@ body {
     font-size: 24px;
     cursor: pointer;
     color: #F6F6F6;
-    box-sizing: border-box;
 }
 
 .photo-gallery img {
     margin: 10px;
     max-width: 100%;
-    box-sizing: border-box;
 }
 
 .custom-cursor {
     display: none;
-    box-sizing: border-box;
 }
 
-/* Анимация появления при скроллинге */
 .timeline-item {
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.5s ease, transform 0.5s ease;
-    box-sizing: border-box;
 }
 
 .timeline-item.visible {
     opacity: 1;
     transform: translateY(0);
-    box-sizing: border-box;
 }
 
-/* Медиа-запросы для мобильных устройств */
 @media (max-width: 768px) {
     .site-header {
         flex-direction: column;
         align-items: flex-start;
         padding: 10px;
-        box-sizing: border-box;
     }
 
     .main-nav {
         margin-top: 10px;
         margin-left: 0;
-        box-sizing: border-box;
     }
 
     .nav-btn {
         margin: 5px 0;
         display: block;
-        box-sizing: border-box;
     }
 
     .timeline {
-        padding-top: 60px;
+        padding-top: 100px;
         height: auto;
-        box-sizing: border-box;
+    }
+
+    .timeline-legend-container {
+        position: static;
+        width: auto;
+        padding: 10px 0;
+        top: auto;
+        left: auto;
     }
 
     .timeline-container {
@@ -340,7 +322,6 @@ body {
         height: auto;
         align-items: flex-start;
         margin-left: 0;
-        box-sizing: border-box;
     }
 
     .timeline-item {
@@ -349,61 +330,35 @@ body {
         margin-bottom: 30px;
         flex-direction: row;
         align-items: center;
-        box-sizing: border-box;
     }
 
     .timeline-content {
         width: auto;
         height: auto;
-        box-sizing: border-box;
     }
 
     .timeline-content h3 {
         font-size: 14px;
-        box-sizing: border-box;
     }
 
     .timeline-content p {
         font-size: 12px;
-        box-sizing: border-box;
     }
 
     .timeline-thumb {
         width: 100%;
         margin-right: 15px;
-        box-sizing: border-box;
     }
 
     .timeline-grid-line {
         display: none;
-        box-sizing: border-box;
     }
 
     .timeline-grid-line[data-date]:before {
         font-size: 0.8em;
-        box-sizing: border-box;
-    }
-
-    .timeline-legend {
-        padding-left: 10px;
-        display: block;
-        box-sizing: border-box;
-    }
-
-    .process-buttons {
-        flex-direction: column;
-        align-items: center;
-        box-sizing: border-box;
-    }
-
-    .process-btn {
-        width: 100%;
-        text-align: center;
-        box-sizing: border-box;
     }
 }
 
-/* Анимация */
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
