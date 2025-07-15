@@ -55,6 +55,7 @@ body {
     padding-top: 80px;
     height: 100vh;
     margin-top: 0;
+    padding-top: 130px; /* Вертикальный отступ от заголовка */
     box-sizing: border-box;
 }
 
@@ -65,18 +66,22 @@ body {
     height: 100%;
     align-items: flex-start;
     justify-content: flex-start;
-    margin-left: 150px; /* Отступ равный ширине легенды */
+    margin-left: 0; /* Отступ убран, т.к. легенда вне контейнера */
     box-sizing: border-box;
 }
 
 .timeline-legend {
+    position: absolute;
+    left: 20px; /* Отступ слева */
+    top: 130px; /* Выравнивание по верху таймлайна */
     padding-left: 20px;
     display: inline-flex;
     flex-direction: column;
     gap: 10px;
     margin-top: 0;
-    margin-right: 50px;
+    margin-right: 20px; /* Отступ от таймлайна */
     box-sizing: border-box;
+    z-index: 10;
 }
 
 .legend-item {
