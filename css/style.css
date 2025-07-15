@@ -61,7 +61,7 @@ body {
 .timeline-container {
     position: relative;
     display: flex;
-    min-width: 4000px; /* Увеличено для нового размера */
+    min-width: 4500px; /* Увеличено для нового шага */
     height: 100%;
     align-items: flex-start;
     justify-content: flex-start;
@@ -125,11 +125,11 @@ body {
     padding: 15px;
     border-radius: 10px;
     text-align: left;
-    width: 20.92%; /* Удвоенная ширина (10.46% * 2) */
+    width: 300px; /* Фиксированная ширина для квадрата */
+    height: 300px; /* Фиксированная высота для квадрата */
     box-sizing: border-box;
     position: relative;
-    min-width: 20.92%; /* Гарантируем одинаковую ширину */
-    max-width: 20.92%; /* Фиксируем максимальную ширину */
+    aspect-ratio: 1 / 1; /* Гарантирует квадрат */
 }
 
 .completed .timeline-content {
@@ -349,6 +349,7 @@ body {
 
     .timeline-content {
         width: auto;
+        height: auto;
         box-sizing: border-box;
     }
 
