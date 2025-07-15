@@ -2,17 +2,16 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log('DOM загружен, начинаю настройку событий');
 
     // Открытие модального окна для кнопок process-btn
-    document.querySelectorAll('.process-btn').forEach(btn => {
-        btn.addEventListener('click', (event) => {
-            event.preventDefault();
-            const modalId = btn.getAttribute('data-modal');
+   document.querySelectorAll('.timeline-item').forEach(item => {
+        item.addEventListener('click', () => {
+            const modalId = item.getAttribute('data-modal');
             const modal = document.getElementById(modalId);
             if (modal) {
-                console.log(`Открываю модальное окно ${modalId}`);
+                console.log(`Клик по .timeline-item, открываю ${modalId}`);
                 modal.style.display = 'block';
                 document.body.style.overflow = 'hidden';
             } else {
-                console.log(`Модальное окно ${modalId} не найдено`);
+                console.log(`Модальное окно ${modalId} не найдено для .timeline-item`);
             }
         });
     });
