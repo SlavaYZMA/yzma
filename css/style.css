@@ -80,7 +80,7 @@ body {
 .timeline {
     position: relative;
     width: 100%;
-    overflow-x: hidden; /* Убрана лишняя прокрутка */
+    overflow-x: auto; /* Вернули прокрутку */
     padding-top: 160px;
     height: 100vh;
     margin-top: 0;
@@ -90,8 +90,7 @@ body {
 .timeline-container {
     position: relative;
     display: flex;
-    width: 100%;
-    max-width: 100%;
+    min-width: 100%; /* Достаточная ширина для всех проектов */
     height: 100%;
     align-items: flex-start;
     justify-content: flex-start;
