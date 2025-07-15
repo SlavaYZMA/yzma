@@ -5,7 +5,7 @@ body {
     color: #F6F6F6;
     overflow-x: auto;
     line-height: 1.6;
-    box-sizing: border-box; /* Применяем ко всем элементам */
+    box-sizing: border-box;
 }
 
 .site-header {
@@ -18,7 +18,7 @@ body {
     padding: 20px;
     background: rgba(14, 14, 14, 0.9);
     z-index: 1000;
-    height: 60px; /* Фиксированная высота заголовка */
+    height: 60px;
 }
 
 .site-title {
@@ -52,7 +52,7 @@ body {
     position: relative;
     width: 100%;
     overflow-x: auto;
-    padding-top: 80px; /* Увеличен для учета высоты заголовка */
+    padding-top: 80px;
     height: 100vh;
     margin-top: 0;
     box-sizing: border-box;
@@ -61,11 +61,11 @@ body {
 .timeline-container {
     position: relative;
     display: flex;
-    min-width: 3500px; /* Увеличено для большего пространства */
+    min-width: 3500px;
     height: 100%;
     align-items: flex-start;
     justify-content: flex-start;
-    margin-left: 0; /* Убираем отступ, легенда внутри */
+    margin-left: 0;
     box-sizing: border-box;
 }
 
@@ -74,8 +74,8 @@ body {
     display: inline-flex;
     flex-direction: column;
     gap: 10px;
-    margin-top: 0; /* Выравниваем по верхней границе */
-    margin-right: 50px; /* Отступ перед вертикальными линиями */
+    margin-top: 0;
+    margin-right: 50px;
     box-sizing: border-box;
 }
 
@@ -126,8 +126,9 @@ body {
     border-radius: 10px;
     text-align: left;
     width: 10.46%; /* Точно два промежутка (2 * 5.23%) */
-    box-sizing: border-box; /* Учитываем padding в ширине */
-    position: relative; /* Убеждаемся, что ширина учитывает позиционирование */
+    box-sizing: border-box;
+    position: relative;
+    min-width: 10.46%; /* Гарантируем минимальную ширину */
 }
 
 .completed .timeline-content {
@@ -378,7 +379,7 @@ body {
 
     .timeline-legend {
         padding-left: 10px;
-        display: block; /* Для мобильных */
+        display: block;
         box-sizing: border-box;
     }
 
