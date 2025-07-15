@@ -197,6 +197,7 @@ body {
     display: inline-block;
     transition: transform 0.3s, background-color 0.3s;
     cursor: pointer;
+    text-align: center;
 }
 
 .process-btn:hover {
@@ -244,12 +245,13 @@ body {
     transform: translate(-50%, -50%);
     background: #0E0E0E;
     padding: 20px;
-    border-radius: 0;
+    border-radius: 5px;
     width: 80%;
     max-width: 900px;
     max-height: 80vh;
     overflow-y: auto;
     display: flex;
+    flex-direction: column;
     gap: 20px;
     animation: slideIn 0.3s ease;
     color: #F6F6F6;
@@ -262,16 +264,28 @@ body {
 
 .modal-text h3 {
     margin: 0 0 10px;
+    font-size: 1.5em;
 }
 
 .modal-text p {
     margin: 5px 0;
+    font-size: 1em;
+}
+
+.modal-text a {
+    color: #B39DDB;
+    text-decoration: none;
+}
+
+.modal-text a:hover {
+    text-decoration: underline;
 }
 
 .modal-gallery {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     gap: 10px;
+    justify-content: center;
 }
 
 .modal-gallery img {
@@ -279,6 +293,11 @@ body {
     height: 150px;
     object-fit: cover;
     border-radius: 5px;
+    transition: transform 0.3s ease;
+}
+
+.modal-gallery img:hover {
+    transform: scale(1.05);
 }
 
 .modal-more {
@@ -289,6 +308,8 @@ body {
     text-decoration: none;
     border-radius: 5px;
     margin-top: 20px;
+    align-self: center;
+    transition: background-color 0.3s ease;
 }
 
 .modal-more:hover {
@@ -302,6 +323,11 @@ body {
     font-size: 24px;
     cursor: pointer;
     color: #F6F6F6;
+    transition: color 0.3s ease;
+}
+
+.close:hover {
+    color: #B39DDB;
 }
 
 .project-page {
@@ -327,6 +353,7 @@ body {
     display: flex;
     gap: 10px;
     margin: 20px 0;
+    flex-wrap: wrap;
 }
 
 .project-gallery img {
@@ -334,6 +361,11 @@ body {
     height: 200px;
     object-fit: cover;
     border-radius: 5px;
+    transition: transform 0.3s ease;
+}
+
+.project-gallery img:hover {
+    transform: scale(1.05);
 }
 
 @media (max-width: 768px) {
@@ -396,7 +428,7 @@ body {
     }
 
     .timeline-thumb {
-        width: 100%;
+        width: 100px;
         margin-right: 15px;
     }
 
@@ -422,6 +454,11 @@ body {
     .modal-gallery img {
         width: 100px;
         height: 100px;
+    }
+
+    .process-btn {
+        padding: 8px 15px;
+        font-size: 0.9em;
     }
 
     .project-gallery {
