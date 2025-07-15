@@ -1,13 +1,18 @@
 document.addEventListener('DOMContentLoaded', () => {
+    console.log('DOM загружен, начинаю настройку событий');
+
     // Открытие модального окна для кнопок process-btn
     document.querySelectorAll('.process-btn').forEach(btn => {
         btn.addEventListener('click', (event) => {
-            event.preventDefault(); // Предотвращаем прокрутку
+            event.preventDefault();
             const modalId = btn.getAttribute('data-modal');
             const modal = document.getElementById(modalId);
             if (modal) {
+                console.log(`Открываю модальное окно ${modalId}`);
                 modal.style.display = 'block';
-                document.body.style.overflow = 'hidden'; // Блокируем прокрутку
+                document.body.style.overflow = 'hidden';
+            } else {
+                console.log(`Модальное окно ${modalId} не найдено`);
             }
         });
     });
@@ -18,8 +23,11 @@ document.addEventListener('DOMContentLoaded', () => {
             const modalId = item.getAttribute('data-modal');
             const modal = document.getElementById(modalId);
             if (modal) {
+                console.log(`Клик по .timeline-item, открываю ${modalId}`);
                 modal.style.display = 'block';
-                document.body.style.overflow = 'hidden'; // Блокируем прокрутку
+                document.body.style.overflow = 'hidden';
+            } else {
+                console.log(`Модальное окно ${modalId} не найдено для .timeline-item`);
             }
         });
     });
@@ -29,8 +37,9 @@ document.addEventListener('DOMContentLoaded', () => {
         closeBtn.addEventListener('click', () => {
             const modal = closeBtn.closest('.modal');
             if (modal) {
+                console.log(`Закрываю модальное окно ${modal.id}`);
                 modal.style.display = 'none';
-                document.body.style.overflow = 'auto'; // Восстанавливаем прокрутку
+                document.body.style.overflow = 'auto';
             }
         });
     });
@@ -39,8 +48,9 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('click', (event) => {
         document.querySelectorAll('.modal').forEach(modal => {
             if (event.target === modal) {
+                console.log(`Закрытие модального окна ${modal.id} по клику вне`);
                 modal.style.display = 'none';
-                document.body.style.overflow = 'auto'; // Восстанавливаем прокрутку
+                document.body.style.overflow = 'auto';
             }
         });
     });
@@ -65,7 +75,8 @@ document.addEventListener('DOMContentLoaded', () => {
 function closeModal(modalId) {
     const modal = document.getElementById(modalId);
     if (modal) {
+        console.log(`Закрытие модального окна ${modalId} через функцию`);
         modal.style.display = 'none';
-        document.body.style.overflow = 'auto'; // Восстанавливаем прокрутку
+        document.body.style.overflow = 'auto';
     }
 }
