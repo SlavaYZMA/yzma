@@ -55,6 +55,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.addEventListener('scroll', checkVisibility);
     window.addEventListener('load', checkVisibility);
+
+    // Скрытие легенды при прокрутке таймлайна
+    window.addEventListener('scroll', function() {
+        const timeline = document.querySelector('.timeline');
+        const legend = document.querySelector('.timeline-legend-container');
+        const timelineRect = timeline.getBoundingClientRect();
+        if (timelineRect.left < 200) { // Когда таймлайн прокручен влево
+            legend.classList.add('hidden');
+        } else {
+            legend.classList.remove('hidden');
+        }
+    });
 });
 
 function closeModal(modalId) {
