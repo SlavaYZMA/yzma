@@ -65,7 +65,7 @@ body {
     height: 100%;
     align-items: flex-start;
     justify-content: flex-start;
-    margin-left: 0;
+    margin-left: 150px; /* Отступ равный ширине легенды */
     box-sizing: border-box;
 }
 
@@ -133,7 +133,7 @@ body {
 }
 
 .completed .timeline-content {
-    background-color: #1A1A1A; /* Обновлённый цвет */
+    background-color: #1A1A1A;
 }
 
 .upcoming .timeline-content {
