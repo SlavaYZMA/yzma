@@ -17,6 +17,7 @@ body {
     padding: 20px;
     background: rgba(14, 14, 14, 0.9);
     z-index: 1000;
+    height: 60px; /* Фиксированная высота заголовка */
 }
 
 .site-title {
@@ -50,7 +51,7 @@ body {
     position: relative;
     width: 100%;
     overflow-x: auto;
-    padding-top: 80px; /* Пространство под фиксированным заголовком */
+    padding-top: 80px; /* Увеличен для учета высоты заголовка */
     height: 100vh;
     margin-top: 0;
 }
@@ -58,11 +59,11 @@ body {
 .timeline-container {
     position: relative;
     display: flex;
-    min-width: 2500px;
+    min-width: 3000px; /* Увеличено для большего пространства */
     height: 100%;
     align-items: flex-start;
     justify-content: flex-start;
-    margin-left: 0; /* Убираем отступ, так как легенда внутри */
+    margin-left: 0; /* Убираем отступ, легенда внутри */
 }
 
 .timeline-legend {
@@ -71,7 +72,7 @@ body {
     flex-direction: column;
     gap: 10px;
     margin-top: 0; /* Выравниваем по верхней границе */
-    margin-right: 20px; /* Отступ перед линиями */
+    margin-right: 50px; /* Отступ перед вертикальными линиями */
 }
 
 .legend-item {
